@@ -1,0 +1,54 @@
+{
+  "name": "recruitment",
+  "version": "1.0.0",
+  "description": "An advanced recruitment app.",
+  "main": "bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/expertcodelab/recruitment.git"
+  },
+  "author": "Expert Code Lab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/expertcodelab/recruitment/issues"
+  },
+  "homepage": "https://gitlab.com/expertcodelab/recruitment#readme",
+  "dependencies": {
+    "axios": "^1.7.8",
+    "bcrypt": "^5.0.1",
+    "bluebird": "^3.7.2",
+    "connect-redis": "^6.1.3",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "errorhandler": "^1.5.1",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
+    "helmet": "^6.0.0",
+    "joi": "^17.6.0",
+    "jszip": "^3.10.1",
+    "lusca": "^1.7.0",
+    "moment": "^2.29.4",
+    "mongodb": "^6.1.0",
+    "mongoose": "^6.6.1",
+    "mongoose-serial": "^1.0.4",
+    "morgan": "^1.10.0",
+    "needle": "^3.1.0",
+    "node-constants": "0.0.2",
+    "nodemailer": "^6.7.8",
+    "nodemon": "^3.1.10",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "puppeteer": "^23.9.0",
+    "puppeteer-core": "^23.9.0",
+    "razorpay": "^2.8.3",
+    "redis": "^3.1.2",
+    "ua-parser-js": "^2.0.4",
+    "uuid": "^9.0.0"
+  }
+}
