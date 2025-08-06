@@ -1,0 +1,331 @@
+<%
+
+let departVacn = [
+    
+{
+        "advID": "",
+        "isActive": true,
+        "departmentID": "",
+        "departmentName": "College of Nursing, AIIMS RBL",
+        "applyFor": [
+        { "postName": "Professor cum Principal", "postId": "", "UR":"1","OBC":"0","SC":"0","ST":"0","EWS":"0","Total":"1"},
+        { "postName": "Tutor/Clinical Instructor", "postId": "", "UR":"0","OBC":"2","SC":"0","ST":"0","EWS":"0","Total":"2"}
+        ]
+    }
+];
+
+let vaccInnerHtml = "";
+
+for(let i = 0; i < departVacn.length; i++){
+  let depDeatils = departVacn[i];
+  if(depDeatils.departmentName == data.department){
+      for(let j = 0; j < depDeatils.applyFor.length; j++){
+          if(
+              depDeatils.applyFor[j].postName == data.post
+          ) {
+              vaccInnerHtml = `UR: ${depDeatils.applyFor[j].UR}, OBC: ${depDeatils.applyFor[j].OBC}, SC: ${depDeatils.applyFor[j].SC}, ST: ${depDeatils.applyFor[j].ST}, EWS: ${depDeatils.applyFor[j].EWS}, Total: ${depDeatils.applyFor[j].Total}`;
+          }
+      }
+  }
+}
+%>
+<html lang="en">
+    <head>
+    
+
+    </head>
+
+    <body >
+      <style>
+        table {
+            border-collapse: collapse;
+            width: 100%; font-size: 14px;
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;
+        }
+        .eduTable{
+            border-collapse: collapse;
+            width: 100%; font-size: 12px;
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif; border:1px solid 1px #000 !important;
+        }
+        .eduTable td, .eduTable th{border:1px solid 1px #000 !important;}
+        .eduTable  tr:nth-child(1) {
+            font-weight: 500;
+        }
+        .eduTable  td {
+            border: 1px solid #000;
+        }
+        .eduTable td{text-align: center;}
+        .mtstyle th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        .mtstyle th{width:30%}
+      .mtstyle  tr:nth-child(even) {
+            background-color: rgb(228, 231, 249);
+        }
+    </style>
+        <table style="background-color: rgb(168, 168, 171); width: 100%; border: 0px;">
+         <tr><td>
+<table  style="background-color: #d6d8dc;width: 1024px; font-size: 14px; border: 0px; margin:0px auto; background: #d6d8dc; border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;">
+  
+  <tr><td  vertical-align="top" style="text-align: center;">
+    <p>&nbsp;</p>
+    <img width="700px;" src="/static/images/aiims-rbl.png"/>
+
+<p style="font-size: 18px;"><a href="https://www.aiimsrbl.edu.in/" target="_blank">www.aiimsrbl.edu.in</a></p>
+</td>
+</tr>
+<tr>
+  <td style="border-top: 1px solid #fff; margin-top: 10px; ">
+    <p>&nbsp;</p>
+  
+  </td>
+</tr>
+<tr><td style="border:0px ; padding: 20px; background-color: #fff; background: #fff; font-size:14px;">
+  <div style="min-height:500px; background-color: #fff; background: #fff; font-size:14px;">
+    <table style="width:100%"><tr><td style="width:50%; text-align: left;">Adv Ref no: <%=data.advRefNo%></td><td  style="width:50%; text-align: right;" >Dated: <%=moment(data.created_at).add(5, 'hours').add(30, 'minutes').format('DD/MM/YYYY')%></td></tr></table>
+    <h1 style="text-align: center;font-size:18px; font-family:Arial, Helvetica, sans-serif; color:#000;">Application Form Details</h1>
+<p></p>
+
+<table  class="mtstyle">
+  <tr><th><p>Registration No: <%=data.registrationNumber%></p>
+    <p> Paid Fee Amount: Rs.<%=data.applicationfee%>/- </p>
+    <p> Transaction Id: <%=data.razorpay_payment_id%> </p>
+    <p> Transaction Status: <%=data.paymentStatus%> </p>
+  </th><td style="text-align:right ;"><img width="140px" alt="photo" src="/static/uploads/applications/<%=data.photo%>"/></td></tr>
+<tr><th>Open vacancy for selected post and selected  department: </th><td><%=vaccInnerHtml%></td></tr>
+<tr><th>Mode of recruitment: </th><td><%=data.recruitMode%> Basis</td></tr>
+<tr><th>Categories in which applied for: </th><td><%=data.applyCategory%></td></tr>
+<tr><th>Application for the Post of: </th><td><%=data.post%></td></tr>
+<tr><th>Department: </th><td><%=data.department%></td></tr>
+
+<tr><th>Applicant Full Name:</th><td style="text-transform:uppercase"><%=data.applicantName%></td></tr>
+<tr><th>Father/Husband Name:</th><td style="text-transform:uppercase"><%=data.fatherOrHusbandName%></td></tr>
+<tr><th>Email address:</th><td ><%=data.applicantEmail%></td></tr>
+<tr><th>Aadhaar No.:</th><td ><%=data.aadharNo%></td></tr>
+<tr><th>Mobile Number:</th><td ><%=data.applicantMobile%></td></tr>
+<tr><th>Mailing Address:</th><td ><%=data.currentAddress%>, <%=data.currentCity%>, <%=data.currentZipCoce%>, <%=data.currentCountry%></td></tr>
+<% if(data.permanentAddress && data.permanentAddress.length > 1){%>
+<tr><th>Permanent Address:</th><td ><%=data.permanentAddress%>, <%=data.permanentCity%>,<%=data.permanentZipCode%>, <%=data.permanentCountry%></td></tr>
+<%} else {%>
+  <tr><th>Permanent Address:</th><td ><%=data.currentAddress%>, <%=data.currentCity%>, <%=data.currentZipCoce%>, <%=data.currentCountry%></td></tr>
+<%}%>
+
+<tr><th>Date of Birth:</th><td ><%=moment(data.dob).format('DD-MM-YYYY')%></td></tr>
+<%
+var starts = moment(data.dob);
+
+//advertisement end date
+var ends   = moment('2024-10-10');
+
+var years = ends.diff(starts, 'year');
+starts.add(years, 'years');
+
+var months = ends.diff(starts, 'months');
+starts.add(months, 'months');
+
+var days = ends.diff(starts, 'days');
+%>
+<tr><th>Age (as on last date of Online application):</th><td><%=years + ' Years, ' + months + ' Months, ' + days + ' Days'%></td></tr>
+<tr><th>Gender:</th><td ><%=data.gender%></td></tr>
+<tr><th>Whether belong to:</th><td ><%=data.category%></td></tr>
+<tr><th>Whether belong to PwBD:</th><td ><%=data.pwbd%>   &nbsp;&nbsp;&nbsp; <%if(data.pwbd == 'yes'){%>Disability: <%=data.pwbdPercentage%>%<%}%>  </td></tr>
+<tr><th>Nationality:</th><td ><%=data.nationality%></td></tr>
+<tr><th>State of Domicile:</th><td > <%=data.domicile%></td></tr>
+<tr><th>Religion:</th><td ><%=data.religion%></td></tr>
+<tr><th>Registration No. with the Indian Nursing Council:</th><td ><%=data.medicalCouncilRegNo%></td></tr>
+<tr><th>State in which registered:</th><td ><%=data.medicalCouncilRegState%></td></tr>
+<tr><th>Are you retired Faculty Consultants?:</th><td ><%=data.isRetired%></td></tr>
+<tr><th>Date of retirement under Central/State Gov. Rules:</th><td ><%=data.retiredDate?data.retiredDate:"NA"%></td></tr>
+<tr><th>Are you present employment/post held?:</th><td ><%=data.isPresentEmp%></td></tr>
+<tr><th>If Selected, what notice period would you require before joining:</th><td ><%=data.presentEmpNoticePeriod?data.presentEmpNoticePeriod:"NA"%></td></tr>
+
+</table>
+<p><b>UG QUALIFICATION DETAILS</b></p>
+<table class="eduTable">
+    <tr><td><b>Name of the Examination</b></td><td><b>Subject/Discipline/Speciality</b></td><td><b>University/Institute/College</b></td><td><b>Date of completion of course</b></td><td><b>Marks Obtained / Total</b></td><td><b>Duration of course</b></td></tr>
+    <tr><td>10th</td><td><%=data.sub10%></td><td><%=data.college10%></td><td><%=moment(data.completionDate10).format('DD-MM-YYYY')%></td><td><%=data.marksObtained10%></td><td><%=data.courseDurtion10%></td></tr>
+    <tr><td>12th</td><td><%=data.sub12%></td><td><%=data.college12%></td><td><%=moment(data.completionDate12).format('DD-MM-YYYY')%></td><td><%=data.marksObtained12%></td><td><%=data.courseDurtion12%></td></tr>
+    <tr><td>B.Sc. Nursing/ Post B.Sc. Nursing</td><td><%=data.subGrad%></td><td><%=data.collegeGrad%></td><td><%=moment(data.completionDateGrad).format('DD-MM-YYYY')%></td><td><%=data.marksObtainedGrad%></td><td><%=data.courseDurtionGrad%></td></tr>
+</table>
+<p><b>PG QUALIFICATION DETAILS</b></p>
+<table class="eduTable">
+    <tr><td><b>Name of the Examination</b></td><td><b>Subject/Discipline/Speciality</b></td><td><b>University/Institute/College</b></td><td><b>Date of completion of course</b></td><td><b>Marks Obtained / Total</b></td><td><b>Duration of course</b></td></tr>
+    <tr><td>M.Sc. Nursing</td><td><%=data.subMDMS%></td><td><%=data.collegeMDMS%></td><td><%=data.completionDateMDMS?moment(data.completionDateMDMS).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedMDMS%></td><td><%=data.courseDurtionMDMS%></td></tr>
+    <tr><td>M.D. in Nursing</td><td><%=data.subMsc%></td><td><%=data.collegeMsc%></td><td><%=data.completionDateMsc?moment(data.completionDateMsc).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedMsc%></td><td><%=data.courseDurtionMsc%></td></tr>
+    <tr><td>Diploma/Superspecialization</td><td><%=data.subDMMCh%></td><td><%=data.collegeDMMCh%></td><td><%=data.completionDateDMMCh?moment(data.completionDateDMMCh).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedDMMCh%></td><td><%=data.courseDurtionDMMCh%></td></tr>
+    <tr><td>Ph.D. in Nursing</td><td><%=data.subPhD%></td><td><%=data.collegePhD%></td><td><%=data.completionDatePhD?moment(data.completionDatePhD).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedPhD%></td><td><%=data.courseDurtionPhD%></td></tr>
+</table>
+
+<%
+function calculateDateDiff(startDate, endDate){
+  var starts = moment(startDate);
+  var ends   = moment(endDate);
+  var years = ends.diff(starts, 'year');
+  starts.add(years, 'years');
+  var months = ends.diff(starts, 'months');
+  starts.add(months, 'months');
+  var days = ends.diff(starts, 'days');
+
+  return years + ' Years, ' + months + ' Months, ' + days + ' Days';
+}
+%>
+<p><b>BEFORE OBTAINING POSTGRADUATE/ SUPER SPECIALTY/PH.D. QUALIFICATION</b></p>
+<table class="eduTable">
+    <tr><td><b>Post Held</b><br>Temporary/Permanent<td><b>From Date</b></td><td><b>To Date</b></td><td><b>Duration</b></td><td><b>Pay Scale</b></td><td><b>Employer's Address</b></td><td><b>Nature of Job</b></td></tr>
+
+    <tr><td><%=data.expPostName1%></td><td><%=data.expJoiningDate1?moment(data.expJoiningDate1).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate1?moment(data.expResignDate1).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate1&&data.expResignDate1){%><%=calculateDateDiff(data.expJoiningDate1,data.expResignDate1)%><%}%></td><td><%=data.expPayScale1%></td><td><Address><%=data.expEmpDetails1%></Address></td><td><Address><%=data.expEmpJob1%></Address></td></tr>
+    <tr><td><%=data.expPostName2%></td><td><%=data.expJoiningDate2?moment(data.expJoiningDate2).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate2?moment(data.expResignDate2).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate2&&data.expResignDate2){%><%=calculateDateDiff(data.expJoiningDate2,data.expResignDate2)%><%}%></td><td><%=data.expPayScale2%></td><td><Address><%=data.expEmpDetails2%></Address></td><td><Address><%=data.expEmpJob2%></Address></td></tr>
+    <tr><td><%=data.expPostName3%></td><td><%=data.expJoiningDate3?moment(data.expJoiningDate3).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate3?moment(data.expResignDate3).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate3&&data.expResignDate3){%><%=calculateDateDiff(data.expJoiningDate3,data.expResignDate3)%><%}%></td><td><%=data.expPayScale3%></td><td><Address><%=data.expEmpDetails3%></Address></td><td><Address><%=data.expEmpJob3%></Address></td></tr>
+    <tr><td><%=data.expPostName4%></td><td><%=data.expJoiningDate4?moment(data.expJoiningDate4).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate4?moment(data.expResignDate4).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate4&&data.expResignDate4){%><%=calculateDateDiff(data.expJoiningDate4,data.expResignDate4)%><%}%></td><td><%=data.expPayScale4%></td><td><Address><%=data.expEmpDetails4%></Address></td><td><Address><%=data.expEmpJob4%></Address></td></tr>
+    <tr><td><%=data.expPostName5%></td><td><%=data.expJoiningDate5?moment(data.expJoiningDate5).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate5?moment(data.expResignDate5).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate5&&data.expResignDate5){%><%=calculateDateDiff(data.expJoiningDate5,data.expResignDate5)%><%}%></td><td><%=data.expPayScale5%></td><td><Address><%=data.expEmpDetails5%></Address></td><td><Address><%=data.expEmpJob5%></Address></td></tr>
+    <tr><td><%=data.expPostName6%></td><td><%=data.expJoiningDate6?moment(data.expJoiningDate6).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate6?moment(data.expResignDate6).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate6&&data.expResignDate6){%><%=calculateDateDiff(data.expJoiningDate6,data.expResignDate6)%><%}%></td><td><%=data.expPayScale6%></td><td><Address><%=data.expEmpDetails6%></Address></td><td><Address><%=data.expEmpJob6%></Address></td></tr>
+    <tr><td><%=data.expPostName7%></td><td><%=data.expJoiningDate7?moment(data.expJoiningDate7).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate7?moment(data.expResignDate7).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate7&&data.expResignDate7){%><%=calculateDateDiff(data.expJoiningDate7,data.expResignDate7)%><%}%></td><td><%=data.expPayScale7%></td><td><Address><%=data.expEmpDetails7%></Address></td><td><Address><%=data.expEmpJob7%></Address></td></tr>
+
+</table>
+
+<p><b>AFTER OBTAINING POSTGRADUATE/SUPER SPECIALTY/PH.D. QUALIFICATION:</b></p>
+<table class="eduTable">
+    <tr><td><b>Post Held</b><br>Temporary/Permanent<td><b>From Date</b></td><td><b>To Date</b></td><td><b>Duration</b></td><td><b>Pay Scale</b></td><td><b>Employer's Address</b></td><td><b>Nature of Job</b></td></tr>
+
+    <tr><td><%=data.expAPGPostName1%></td><td><%=data.expAPGJoiningDate1?moment(data.expAPGJoiningDate1).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate1?moment(data.expAPGResignDate1).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate1&&data.expAPGResignDate1){%><%=calculateDateDiff(data.expAPGJoiningDate1,data.expAPGResignDate1)%><%}%></td><td><%=data.expAPGPayScale1%></td><td><Address><%=data.expAPGEmpDetails1%></Address></td><td><Address><%=data.expAPGEmpJob1%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName2%></td><td><%=data.expAPGJoiningDate2?moment(data.expAPGJoiningDate2).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate2?moment(data.expAPGResignDate2).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate2&&data.expAPGResignDate2){%><%=calculateDateDiff(data.expAPGJoiningDate2,data.expAPGResignDate2)%><%}%></td><td><%=data.expAPGPayScale2%></td><td><Address><%=data.expAPGEmpDetails2%></Address></td><td><Address><%=data.expAPGEmpJob2%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName3%></td><td><%=data.expAPGJoiningDate3?moment(data.expAPGJoiningDate3).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate3?moment(data.expAPGResignDate3).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate3&&data.expAPGResignDate3){%><%=calculateDateDiff(data.expAPGJoiningDate3,data.expAPGResignDate3)%><%}%></td><td><%=data.expAPGPayScale3%></td><td><Address><%=data.expAPGEmpDetails3%></Address></td><td><Address><%=data.expAPGEmpJob3%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName4%></td><td><%=data.expAPGJoiningDate4?moment(data.expAPGJoiningDate4).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate4?moment(data.expAPGResignDate4).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate4&&data.expAPGResignDate4){%><%=calculateDateDiff(data.expAPGJoiningDate4,data.expAPGResignDate4)%><%}%></td><td><%=data.expAPGPayScale4%></td><td><Address><%=data.expAPGEmpDetails4%></Address></td><td><Address><%=data.expAPGEmpJob4%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName5%></td><td><%=data.expAPGJoiningDate5?moment(data.expAPGJoiningDate5).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate5?moment(data.expAPGResignDate5).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate5&&data.expAPGResignDate5){%><%=calculateDateDiff(data.expAPGJoiningDate5,data.expAPGResignDate5)%><%}%></td><td><%=data.expAPGPayScale5%></td><td><Address><%=data.expAPGEmpDetails5%></Address></td><td><Address><%=data.expAPGEmpJob5%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName6%></td><td><%=data.expAPGJoiningDate6?moment(data.expAPGJoiningDate6).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate6?moment(data.expAPGResignDate6).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate6&&data.expAPGResignDate6){%><%=calculateDateDiff(data.expAPGJoiningDate6,data.expAPGResignDate6)%><%}%></td><td><%=data.expAPGPayScale6%></td><td><Address><%=data.expAPGEmpDetails6%></Address></td><td><Address><%=data.expAPGEmpJob6%></Address></td></tr>
+    <tr><td><%=data.expAPGPostName7%></td><td><%=data.expAPGJoiningDate7?moment(data.expAPGJoiningDate7).format('DD-MM-YYYY'):''%></td><td><%=data.expAPGResignDate7?moment(data.expAPGResignDate7).format('DD-MM-YYYY'):''%></td><td><%if(data.expAPGJoiningDate7&&data.expAPGResignDate7){%><%=calculateDateDiff(data.expAPGJoiningDate7,data.expAPGResignDate7)%><%}%></td><td><%=data.expAPGPayScale7%></td><td><Address><%=data.expAPGEmpDetails7%></Address></td><td><Address><%=data.expAPGEmpJob7%></Address></td></tr>
+
+</table>
+
+<p>Research Experience, if any, together with details of published works in indexed journals.: <%if(data.researchExperience){%>Yes<%} else {%> No <%}%></p>
+<p><b>Number of Published Papers Details</b></p>
+<table class="eduTable">
+    <tr><td><b>Type</b></td><td><b>Published Indexed</b></td><td><b>Published Non-Indexed</b></td><td><b>Accepted for publication</b></td><td><b>Presented at conferencen</b></td></tr>
+
+    <tr><td><b>NATIONAL</b></td><td><%=data.nationalPaperIndx%></td><td><%=data.nationalPaperNonIndx%></td><td><%=data.nationalPaperAcceptedPub%></td><td><%=data.nationalPaperPresented%></td></tr>
+    <tr><td><b>INTERNATIONAL</b></td><td><%=data.internationalPaperIndx%></td><td><%=data.internationalPaperNonIndx%></td><td><%=data.internationalPaperAcceptedPub%></td><td><%=data.internationalPaperPresented%></td></tr>
+
+</table>
+
+
+
+
+
+
+<p><b>Present or Last Employment details:</b></p>
+<table class="eduTable">
+  <TR><TD><b> Employment/post held</b></TD><TD><b>Pay Scale</b></TD><TD><b>Total emoluments drawn</b></TD><TD><b>Employer's Address 
+    with (phone no & email id.)</b></TD></TR>
+  <TR><TD><%=data.presentPostName%></TD><TD><%=data.presentPayScale%>/-</TD><TD><%=data.presentTotEmu%></TD><TD><%=data.presentEmpDet%></TD></TR>
+ 
+</table>
+<P><b>Details of Prizes, Medals, Scholarships & National /International Awards etc.</b></P>
+<table class="eduTable">
+  <TR><TD><P style="text-align:justify; text-justify: inter-word;"><%=data.prizeMedalDetails%></P></TD></TR>
+</table>
+<P><b>MEMBERSHIP OF PROFESSIONAL SOCIETIES/BODIES/ASSOCIATIONS ETC. Status whether fellow, member or associate member etc.</b></P>
+<table class="eduTable">
+  <TR><TD><b>Name of SOCIETIES/BODIES/ASSOCIATIONS</b></TD><TD><b>Date of Enrolment</b></TD><TD><b>STATUS</b></TD></TR>
+  <TR><TD><%=data.menbershipName1%></TD><TD><%=data.menbershipDate1?moment(data.menbershipDate1).format('DD-MM-YYYY'):""%></TD><TD><%=data.menbershipStatus1%></TD></TR>
+  <TR><TD><%=data.menbershipName2%></TD><TD><%=data.menbershipDate2?moment(data.menbershipDate2).format('DD-MM-YYYY'):""%></TD><TD><%=data.menbershipStatus2%></TD></TR>
+  <TR><TD><%=data.menbershipName3%></TD><TD><%=data.menbershipDate3?moment(data.menbershipDate3).format('DD-MM-YYYY'):""%></TD><TD><%=data.menbershipStatus3%></TD></TR>
+  <TR><TD><%=data.menbershipName4%></TD><TD><%=data.menbershipDate4?moment(data.menbershipDate4).format('DD-MM-YYYY'):""%></TD><TD><%=data.menbershipStatus4%></TD></TR>
+  
+</table>
+
+<p><b>Please provide a list of all your scientific publications in chronological order providing details of articles including whether original article/review/case report, indexed/non-indexed, impact factor and number of citations for the articles:</b></p>
+<table class="eduTable">
+  <TR><TD><b>Particulars of Article</b></TD><TD><b>Impact Factor</b></TD><TD><b>Citations</b></TD></TR>
+  <TR><TD><%=data.articleName1%></TD><TD><%=data.articleImpactFact1%></TD><TD><%=data.articleCitation1%></TD></TR>
+  <TR><TD><%=data.articleName2%></TD><TD><%=data.articleImpactFact2%></TD><TD><%=data.articleCitation2%></TD></TR>
+  <TR><TD><%=data.articleName3%></TD><TD><%=data.articleImpactFact3%></TD><TD><%=data.articleCitation3%></TD></TR>
+  <TR><TD><%=data.articleName4%></TD><TD><%=data.articleImpactFact4%></TD><TD><%=data.articleCitation4%></TD></TR>
+  <TR><TD><%=data.articleName5%></TD><TD><%=data.articleImpactFact5%></TD><TD><%=data.articleCitation5%></TD></TR>
+ 
+</table> 
+<%if(data.articleCitationMoreThan5 && data.articleCitationMoreThan5.length){%>
+<p><b>More Than 5 Published Articles:</b></p>
+<table class="eduTable">
+  <TR><TD><P style="text-align:justify; text-justify: inter-word;"><%=data.articleCitationMoreThan5%></P></TD></TR>
+</table>
+<%}%>
+<p><b>Chapter in books/books edited</b></p>
+<table class="eduTable">
+  <TR><TD><P style="text-align:justify; text-justify: inter-word;"><%=data.chaptersBooksEdited%></P></TD></TR>
+</table>
+<p><b>State the foreign languages you know:</b></p>
+<table class="eduTable">
+  <TR><TD><b>Language Name</b></TD><TD><b>Can read</b></TD><TD><b>Can write</b></TD><TD><b>Can speak</b></TD></TR>
+  <TR><TD><%=data.lang1%></TD><TD><%=data.readL1%></TD><TD><%=data.writeL1%></TD><TD><%=data.speakL1%></TD></TR>
+  <TR><TD><%=data.lang2%></TD><TD><%=data.readL2%></TD><TD><%=data.writeL2%></TD><TD><%=data.speakL2%></TD></TR>
+  <TR><TD><%=data.lang3%></TD><TD><%=data.readL3%></TD><TD><%=data.writeL3%></TD><TD><%=data.speakL3%></TD></TR>
+
+</table>
+
+<p><b>Give below the full details of the names/particulars of two employer/Head of Institute from your current and last employer, to testify from personal knowledge to your fitness for the post.</b></p>
+<table class="eduTable">
+  <TR><TD><b>Ref. NAME</b></TD><TD><b>Designation</b></TD><TD><b>Institution</b></TD><TD><b>Address</b></TD><TD><b>Mobile</b></TD><TD><b>Email</b></TD></TR>
+  <TR><TD><%=data.refName1%></TD><TD><%=data.refDesg1%></TD><TD><%=data.refInst1%></TD><TD><%=data.refAdd1%></TD><td><%=data.refMob1%></td><TD><%=data.refEmail1%></TD></TR>
+  <TR><TD><%=data.refName2%></TD><TD><%=data.refDesg2%></TD><TD><%=data.refInst2%></TD><TD><%=data.refAdd2%></TD><td><%=data.refMob2%></td><TD><%=data.refEmail2%></TD></TR>
+  
+</table>
+
+
+
+
+
+
+<p><b>LIST OF ENCLOSURES:</b></p>
+<table class="eduTable">
+    <tr><td><b>Particulars of enclosures</b></td><td><b>Uploaded Status</b></td></tr>
+
+    <tr><td><b>Birth Certificate</b></td><td><%if(data.certBirth){%><a href="/static/uploads/applications/<%=data.certBirth%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Matriculation Certificate</b></td><td><%if(data.cert10){%><a href="/static/uploads/applications/<%=data.cert10%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Intermediate / + 2 Science</b></td><td><%if(data.cert12){%><a href="/static/uploads/applications/<%=data.cert12%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>B.Sc. Nursing/ Post B.Sc. Nursing Degree Certificate</b></td><td><%if(data.certGrad){%><a href="/static/uploads/applications/<%=data.certGrad%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>M.Sc. Nursing/ Master of Nursing Degree Certificate</b></td><td><%if(data.certPg){%><a href="/static/uploads/applications/<%=data.certPg%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Ph.D. Nursing Certificate</b></td><td><%if(data.certDM){%><a href="/static/uploads/applications/<%=data.certDM%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Experience Certificate(s)</b></td><td><%if(data.certExp){%><a href="/static/uploads/applications/<%=data.certExp%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Community Certificate [SC / ST / OBC (Non-Creamy Layer)/EWS]</b></td><td><%if(data.certCommunity){%><a href="/static/uploads/applications/<%=data.certCommunity%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Registration & Additional Registration with Indian Nursing Council Certificate</b></td><td><%if(data.certReg){%><a href="/static/uploads/applications/<%=data.certReg%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Disability Certificate</b></td><td><%if(data.disabilityCert){%><a href="/static/uploads/applications/<%=data.disabilityCert%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>NOC - If Applicable</b></td><td><%if(data.certNOC){%><a href="/static/uploads/applications/<%=data.certNOC%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Retirement Certificate (If applicable)</b></td><td><%if(data.certRetired){%><a href="/static/uploads/applications/<%=data.certRetired%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Any other relevent document 1</b></td><td><%if(data.certOther1){%><a href="/static/uploads/applications/<%=data.certOther1%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Any other relevent document 2</b></td><td><%if(data.certOther2){%><a href="/static/uploads/applications/<%=data.certOther2%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Any other relevent document 3</b></td><td><%if(data.certOther3){%><a href="/static/uploads/applications/<%=data.certOther3%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+
+
+</table>
+<table>
+
+  <tr><td>Your Signature: </td><td><img height="100px" alt="photo" src="/static/uploads/applications/<%=data.signFile%>"/></td></tr>
+
+</table>
+  </div>
+
+</td></tr>
+<tr>
+  <td style="text-align: center; border-top:1px solid #000; height: 20px; ;">
+  
+  <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;"><br/><b><a  target="_blank" style="color: #000; text-decoration: none;" href="https://www.aiimsrbl.edu.in">www.aiimsrbl.edu.in</a></b><br><b>HELPLINE & SUPPORT</b><br/>Phone no: +91 0535-2704400 &nbsp;&nbsp;&nbsp;  Email: aiimsrblprogrammer@gmail.com</p></td></tr>
+
+
+  <tr>
+    <td style="text-align: center; border-top:1px solid #000; height: 50px;;">
+    
+    <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;">&#169; 2022 AIIMS Raebareli. All Right Reserved.</p></td></tr>
+  
+</table>
+
+         </td></tr>
+        
+        </table>
+        <div style="text-align: center;">
+        <button onclick="window.print();return false;" style="margin:0px auto; height: 50px; background-color: green;">Print Application</button>
+				<p style="color:red; padding-top:30px;">NOTE: Print and keep this form as a reference and don't send the hard copy to the institution.</p>
+
+      </div>
+    </body>
+</html>

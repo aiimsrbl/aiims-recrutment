@@ -1,0 +1,919 @@
+<%
+
+let departVacn = [
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Anatomy",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "1",
+        SC: "0",
+        ST: "0",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Anaesthesia",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "1",
+        SC: "0",
+        ST: "1",
+        EWS: "0",
+        Total: "2",
+      },
+    ],
+  },
+
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Biochemistry",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "2",
+        SC: "2",
+        ST: "0",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Cardiology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "3",
+        OBC: "3",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "7",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Community Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "0",
+        SC: "0",
+        ST: "0",
+        EWS: "1",
+        Total: "2",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "CTVS",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "3",
+        OBC: "0",
+        SC: "2",
+        ST: "0",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Dentistry-General",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "1",
+        SC: "0",
+        ST: "0",
+        EWS: "0",
+        Total: "1",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Dermatology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "1",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "2",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Endocrinology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "1",
+        SC: "1",
+        ST: "1",
+        EWS: "0",
+        Total: "4",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "ENT",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "0",
+        SC: "0",
+        ST: "0",
+        EWS: "1",
+        Total: "1",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Forensic Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "1",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "4",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Gastroenterology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "2",
+        SC: "1",
+        ST: "0",
+        EWS: "1",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "General Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "3",
+        OBC: "2",
+        SC: "1",
+        ST: "1",
+        EWS: "0",
+        Total: "7",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "General Surgery",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "3",
+        OBC: "3",
+        SC: "0",
+        ST: "1",
+        EWS: "1",
+        Total: "8",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Hospital Administration",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "1",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Medical Oncology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "1",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "4",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Microbiology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "0",
+        ST: "1",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Nephrology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "2",
+        ST: "1",
+        EWS: "0",
+        Total: "7",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Neurology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "3",
+        ST: "1",
+        EWS: "0",
+        Total: "8",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Neurosurgery",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "3",
+        OBC: "1",
+        SC: "1",
+        ST: "1",
+        EWS: "1",
+        Total: "7",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Nuclear Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "0",
+        SC: "0",
+        ST: "0",
+        EWS: "1",
+        Total: "2",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Obstetrics and Gynaecology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "3",
+        SC: "1",
+        ST: "0",
+        EWS: "2",
+        Total: "6",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Ophthalmology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "2",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Orthopaedics",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "0",
+        SC: "0",
+        ST: "0",
+        EWS: "3",
+        Total: "4",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Paediatrics",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "0",
+        SC: "0",
+        ST: "0",
+        EWS: "3",
+        Total: "4",
+      },
+    ],
+  },
+
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Paediatric Surgery",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Pathology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "3",
+        SC: "0",
+        ST: "0",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Pharmacology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "1",
+        SC: "0",
+        ST: "1",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Physical Medicine and Rehabilitation",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "1",
+        SC: "0",
+        ST: "1",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Physiology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "2",
+        SC: "1",
+        ST: "0",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Psychiatry",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "0",
+        OBC: "0",
+        SC: "0",
+        ST: "1",
+        EWS: "1",
+        Total: "2",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Pulmonary Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "2",
+        ST: "0",
+        EWS: "1",
+        Total: "7",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Radiology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "1",
+        SC: "1",
+        ST: "1",
+        EWS: "0",
+        Total: "5",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Radiotherapy",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "2",
+        SC: "0",
+        ST: "0",
+        EWS: "0",
+        Total: "3",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Transfusion Medicine",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "1",
+        SC: "1",
+        ST: "0",
+        EWS: "1",
+        Total: "4",
+      },
+    ],
+  },
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Trauma and Emergency",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "2",
+        OBC: "2",
+        SC: "0",
+        ST: "0",
+        EWS: "0",
+        Total: "4",
+      },
+    ],
+  },
+
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Surgical Oncology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "0",
+        SC: "1",
+        ST: "2",
+        EWS: "0",
+        Total: "4",
+      },
+    ],
+  },
+
+  {
+    advID: "",
+    isActive: true,
+    departmentID: "",
+    departmentName: "Urology",
+    applyFor: [
+      {
+        postName: "Senior Resident",
+        postId: "",
+        UR: "1",
+        OBC: "2",
+        SC: "0",
+        ST: "1",
+        EWS: "1",
+        Total: "5",
+      },
+    ],
+  },
+];
+
+
+let vaccInnerHtml = "";
+
+for(let i = 0; i < departVacn.length; i++){
+  let depDeatils = departVacn[i];
+  if(depDeatils.departmentName == data.department){
+      for(let j = 0; j < depDeatils.applyFor.length; j++){
+          if(
+              depDeatils.applyFor[j].postName == data.post
+          ) {
+              vaccInnerHtml = `UR: ${depDeatils.applyFor[j].UR}, OBC: ${depDeatils.applyFor[j].OBC}, SC: ${depDeatils.applyFor[j].SC}, ST: ${depDeatils.applyFor[j].ST}, EWS: ${depDeatils.applyFor[j].EWS}, Total: ${depDeatils.applyFor[j].Total}`;
+          }
+      }
+  }
+}
+%>
+<html lang="en">
+    <head>
+    
+
+    </head>
+
+    <body >
+      <style>
+        table {
+            border-collapse: collapse;
+            width: 100%; font-size: 14px;
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;
+        }
+        .eduTable{
+            border-collapse: collapse;
+            width: 100%; font-size: 12px;
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif; border:1px solid 1px #000 !important;
+        }
+        .eduTable td, .eduTable th{border:1px solid 1px #000 !important;}
+        .eduTable  tr:nth-child(1) {
+            font-weight: 500;
+        }
+        .eduTable  td {
+            border: 1px solid #000;
+        }
+        .eduTable td{text-align: center;}
+        .mtstyle th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        .mtstyle th{width:30%}
+      .mtstyle  tr:nth-child(even) {
+            background-color: rgb(228, 231, 249);
+        }
+    </style>
+        <table style="background-color: rgb(168, 168, 171); width: 100%; border: 0px;">
+         <tr><td>
+<table  style="background-color: #d6d8dc;width: 1024px; font-size: 14px; border: 0px; margin:0px auto; background: #d6d8dc; border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;">
+  
+  <tr><td  vertical-align="top" style="text-align: center;">
+    <p>&nbsp;</p>
+    <img width="700px;" src="/static/images/aiims-rbl.png"/>
+
+<p style="font-size: 18px;"><a href="https://www.aiimsrbl.edu.in/" target="_blank">www.aiimsrbl.edu.in</a></p>
+</td>
+</tr>
+<tr>
+  <td style="border-top: 1px solid #fff; margin-top: 10px; ">
+    <p>&nbsp;</p>
+  
+  </td>
+</tr>
+<tr><td style="border:0px ; padding: 20px; background-color: #fff; background: #fff; font-size:14px;">
+  <div style="min-height:500px; background-color: #fff; background: #fff; font-size:14px;">
+    <table style="width:100%"><tr><td style="width:50%; text-align: left;">Adv Ref no: <%=data.advRefNo%></td><td  style="width:50%; text-align: right;" >Dated: <%=moment(data.created_at).format('DD/MM/YYYY')%></td></tr></table>
+    <h1 style="text-align: center;font-size:18px; font-family:Arial, Helvetica, sans-serif; color:#000;">Application Form Details</h1>
+<p></p>
+
+<table  class="mtstyle">
+  <tr><th><p>Registration No: <%=data.registrationNumber%></p>
+    <p> Paid Fee Amount: Rs.<%=data.applicationfee%>/- </p>
+    <p> Transaction Id: <%=data.razorpay_payment_id%> </p>
+    <p> Transaction Status: <%=data.paymentStatus%> </p>
+  </th><td style="text-align:right ;"><img width="140px" alt="photo" src="/static/uploads/applications/<%=data.photo%>"/></td></tr>
+  <tr><th>Open vacancy for selected post and selected  department: </th><td><%=vaccInnerHtml%></td></tr>
+
+  <tr><th>Application for the Post of: </th><td><%=data.post%></td></tr>
+
+<tr><th>Department: </th><td><%=data.department%></td></tr>
+
+<tr><th>Applicant Full Name:</th><td style="text-transform:uppercase"><%=data.applicantName%></td></tr>
+<tr><th>Father/Husband Name:</th><td style="text-transform:uppercase"><%=data.fatherOrHusbandName%></td></tr>
+<tr><th>Mother Name:</th><td style="text-transform:uppercase"><%=data.motherName%></td></tr>
+<tr><th>Email address:</th><td ><%=data.applicantEmail%></td></tr>
+<tr><th>Aadhaar No.:</th><td ><%=data.aadharNo%></td></tr>
+<tr><th>Mobile Number:</th><td ><%=data.applicantMobile%></td></tr>
+<tr><th>Mailing Address:</th><td ><%=data.currentAddress%>, <%=data.currentCity%>, <%=data.currentZipCoce%>, <%=data.currentCountry%></td></tr>
+<% if(data.permanentAddress && data.permanentAddress.length > 1){%>
+<tr><th>Permanent Address:</th><td ><%=data.permanentAddress%>, <%=data.permanentCity%>,<%=data.permanentZipCode%>, <%=data.permanentCountry%></td></tr>
+<%} else {%>
+  <tr><th>Permanent Address:</th><td ><%=data.currentAddress%>, <%=data.currentCity%>, <%=data.currentZipCoce%>, <%=data.currentCountry%></td></tr>
+<%}%>
+
+<tr><th>Date of Birth:</th><td ><%=moment(data.dob).format('DD-MM-YYYY')%></td></tr>
+
+<%
+var starts = moment(data.dob);
+
+//advertisement end date
+var ends   = moment('2025-03-17');
+
+var years = ends.diff(starts, 'year');
+starts.add(years, 'years');
+
+var months = ends.diff(starts, 'months');
+starts.add(months, 'months');
+
+var days = ends.diff(starts, 'days');
+%>
+
+<tr><th>Age (as on last date of Online application):</th><td><%=years + ' Years, ' + months + ' Months, ' + days + ' Days'%></td></tr>
+<tr><th>Gender:</th><td ><%=data.gender%></td></tr>
+<tr><th>Marital Status:</th><td ><%=data.maritalStatus%></td></tr>
+<tr><th>Whether belong to:</th><td ><%=data.category%></td></tr>
+<tr><th>Whether belong to PwBD:</th><td ><%=data.pwbd%>   &nbsp;&nbsp;&nbsp; <%if(data.pwbd == 'yes'){%>Disability: <%=data.pwbdPercentage%>%<%}%>  </td></tr>
+
+<tr><th>Nationality:</th><td ><%=data.nationality%></td></tr>
+<tr><th>State of Domicile:</th><td > <%=data.domicile%></td></tr>
+<tr><th>Religion:</th><td ><%=data.religion%></td></tr>
+<tr><th>Registration No. with the Medical Council:</th><td ><%=data.medicalCouncilRegNo%></td></tr>
+<tr><th>State in which registered:</th><td ><%=data.medicalCouncilRegState%></td></tr>
+
+
+</table>
+<p><b>QUALIFICATION DETAILS</b></p>
+<table class="eduTable">
+    <tr><td><b>Name of the Examination</b></td><td><b>Subject/Discipline/Speciality</b></td><td><b>University/Institute/College</b></td><td><b>Date of completion of course</b></td><td><b>Marks Obtained / Total</b></td><td><b>Duration of course</b></td></tr>
+    <tr><td>10th</td><td><%=data.sub10%></td><td><%=data.college10%></td><td><%if(data.completionDate10 != ''){%><%=moment(data.completionDate10).format('DD-MM-YYYY')%><%}%></td><td><%=data.marksObtained10%></td><td><%=data.courseDurtion10%></td></tr>
+    <tr><td>12th</td><td><%=data.sub12%></td><td><%=data.college12%></td><td><%if(data.completionDate12 != ''){%><%=moment(data.completionDate12).format('DD-MM-YYYY')%><%}%></td><td><%=data.marksObtained12%></td><td><%=data.courseDurtion12%></td></tr>
+    <tr><td>MBBS</td><td><%=data.subGrad%></td><td><%=data.collegeGrad%></td><td><%if(data.completionDateGrad != ''){%><%=moment(data.completionDateGrad).format('DD-MM-YYYY')%><%}%></td><td><%=data.marksObtainedGrad%></td><td><%=data.courseDurtionGrad%></td></tr>
+    <tr><td>MD</td><td><%=data.subPGMD%></td><td><%=data.collegePGMD%></td><td><%=data.completionDatePGMD?moment(data.completionDatePGMD).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedPGMD%></td><td><%=data.courseDurtionPGMD%></td></tr>
+    <tr><td>MS</td><td><%=data.subPGMS%></td><td><%=data.collegePGMS%></td><td><%=data.completionDatePGMS?moment(data.completionDatePGMS).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedPGMS%></td><td><%=data.courseDurtionPGMS%></td></tr>
+    <tr><td>DNB</td><td><%=data.subPGDNB%></td><td><%=data.collegePGDNB%></td><td><%=data.completionDatePGDNB?moment(data.completionDatePGDNB).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedPGDNB%></td><td><%=data.courseDurtionPGDNB%></td></tr>
+    <tr><td>Diploma</td><td><%=data.subPGDiploma%></td><td><%=data.collegePGDiploma%></td><td><%=data.completionDatePGDiploma?moment(data.completionDatePGDiploma).format('DD-MM-YYYY'): ""%></td><td><%=data.marksObtainedPGDiploma%></td><td><%=data.courseDurtionPGDiploma%></td></tr>
+    
+
+</table>
+<p><b>TEACHING/RESEARCH EXPERIENCE DETAILS</b></p>
+<%
+function calculateDateDiff(startDate, endDate){
+  var starts = moment(startDate);
+  var ends   = moment(endDate);
+  var years = ends.diff(starts, 'year');
+  starts.add(years, 'years');
+  var months = ends.diff(starts, 'months');
+  starts.add(months, 'months');
+  var days = ends.diff(starts, 'days');
+
+  return years + ' Years, ' + months + ' Months, ' + days + ' Days';
+}
+%>
+<table class="eduTable">
+    <tr><td><b>Post Held</b><br>Temporary/Permanent<td><b>From Date</b></td><td><b>To Date</b></td><td><b>Total Period</b></td><td><b>Pay Scale</b></td><td><b>Employer's Address</b></td></tr>
+
+    <tr><td><%=data.expPostName1%></td><td><%=data.expJoiningDate1?moment(data.expJoiningDate1).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate1?moment(data.expResignDate1).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate1 && data.expResignDate1){%><%=calculateDateDiff(data.expJoiningDate1, data.expResignDate1)%><%}%></td><td><%=data.expPayScale1%></td><td><Address><%=data.expEmpDetails1%></Address></td></tr>
+    <tr><td><%=data.expPostName2%></td><td><%=data.expJoiningDate2?moment(data.expJoiningDate2).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate2?moment(data.expResignDate2).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate2 && data.expResignDate2){%><%=calculateDateDiff(data.expJoiningDate2, data.expResignDate2)%><%}%></td><td><%=data.expPayScale2%></td><td><Address><%=data.expEmpDetails2%></Address></td></tr>
+    <tr><td><%=data.expPostName3%></td><td><%=data.expJoiningDate3?moment(data.expJoiningDate3).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate3?moment(data.expResignDate3).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate3 && data.expResignDate3){%><%=calculateDateDiff(data.expJoiningDate3, data.expResignDate3)%><%}%></td><td><%=data.expPayScale3%></td><td><Address><%=data.expEmpDetails3%></Address></td></tr>
+    <tr><td><%=data.expPostName4%></td><td><%=data.expJoiningDate4?moment(data.expJoiningDate4).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate4?moment(data.expResignDate4).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate4 && data.expResignDate4){%><%=calculateDateDiff(data.expJoiningDate4, data.expResignDate4)%><%}%></td><td><%=data.expPayScale4%></td><td><Address><%=data.expEmpDetails4%></Address></td></tr>
+    <tr><td><%=data.expPostName5%></td><td><%=data.expJoiningDate5?moment(data.expJoiningDate5).format('DD-MM-YYYY'):''%></td><td><%=data.expResignDate5?moment(data.expResignDate5).format('DD-MM-YYYY'):''%></td><td><%if(data.expJoiningDate5 && data.expResignDate5){%><%=calculateDateDiff(data.expJoiningDate5, data.expResignDate5)%><%}%></td><td><%=data.expPayScale5%></td><td><Address><%=data.expEmpDetails5%></Address></td></tr>
+
+</table>
+
+<p>Research Experience, if any, together with details of published works in indexed journals.: <%if(data.researchExperience){%>Yes<%} else {%> No <%}%></p>
+<p><b>Number of Published Papers Details</b></p>
+<table class="eduTable">
+    <tr><td><b>Type</b></td><td><b>Published Indexed</b></td><td><b>Published Non-Indexed</b></td><td><b>Accepted for publication</b></td><td><b>Presented at conferencen</b></td></tr>
+
+    <tr><td><b>NATIONAL</b></td><td><%=data.nationalPaperIndx%></td><td><%=data.nationalPaperNonIndx%></td><td><%=data.nationalPaperAcceptedPub%></td><td><%=data.nationalPaperPresented%></td></tr>
+    <tr><td><b>INTERNATIONAL</b></td><td><%=data.internationalPaperIndx%></td><td><%=data.internationalPaperNonIndx%></td><td><%=data.internationalPaperAcceptedPub%></td><td><%=data.internationalPaperPresented%></td></tr>
+
+</table>
+<p><b>LIST OF ENCLOSURES:</b></p>
+<table class="eduTable">
+    <tr><td><b>Particulars of enclosures</b></td><td><b>Uploaded Status</b></td></tr>
+
+    <tr><td><b>Birth Certificate</b></td><td><%if(data.certBirth){%><a href="/static/uploads/applications/<%=data.certBirth%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Matriculation Certificate</b></td><td><%if(data.cert10){%><a href="/static/uploads/applications/<%=data.cert10%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Intermediate / + 2 Science</b></td><td><%if(data.cert12){%><a href="/static/uploads/applications/<%=data.cert12%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>MBBS/M.Sc./BDS Certificate</b></td><td><%if(data.certGrad){%><a href="/static/uploads/applications/<%=data.certGrad%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>M.D/M.S/ D.N.B./Ph.D/MDS Certificate</b></td><td><%if(data.certPg){%><a href="/static/uploads/applications/<%=data.certPg%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>D.M./M. Ch. Certificate</b></td><td><%if(data.certDM){%><a href="/static/uploads/applications/<%=data.certDM%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Experience Certificate(s)</b></td><td><%if(data.certExp){%><a href="/static/uploads/applications/<%=data.certExp%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Community Certificate [SC / ST / OBC (Non-Creamy Layer)/EWS]</b></td><td><%if(data.certCommunity){%><a href="/static/uploads/applications/<%=data.certCommunity%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Registration & Additional Registration with Medical Council Certificate</b></td><td><%if(data.certReg){%><a href="/static/uploads/applications/<%=data.certReg%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Disability Certificate</b></td><td><%if(data.disabilityCert){%><a href="/static/uploads/applications/<%=data.disabilityCert%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+    <tr><td><b>Other</b></td><td><%if(data.certOther){%><a href="/static/uploads/applications/<%=data.certOther%>" target="_blank">YES</a><%} else {%>NO<%}%></td></tr>
+   
+
+</table>
+<table>
+
+  <tr><td>Your Signature: </td><td><img height="100px" alt="photo" src="/static/uploads/applications/<%=data.signFile%>"/></td></tr>
+
+</table>
+  </div>
+
+</td></tr>
+<tr>
+  <td style="text-align: center; border-top:1px solid #000; height: 20px; ;">
+  
+  <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;"><br/><b><a  target="_blank" style="color: #000; text-decoration: none;" href="https://www.aiimsrbl.edu.in">www.aiimsrbl.edu.in</a></b><br><b>HELPLINE & SUPPORT</b><br/>Phone no: +91 0535-2704400 &nbsp;&nbsp;&nbsp;  Email: aiimsrblprogrammer@gmail.com</p></td></tr>
+
+
+  <tr>
+    <td style="text-align: center; border-top:1px solid #000; height: 50px;;">
+    
+    <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;">&#169; 2023 AIIMS Raebareli. All Right Reserved.</p></td></tr>
+  
+</table>
+
+         </td></tr>
+        
+        </table>
+        <div style="text-align: center;">
+        <button onclick="window.print();return false;" style="margin:0px auto; height: 50px; background-color: green;">Print Application</button>
+				<p style="color:red; padding-top:30px;">NOTE: Print and keep this form as a reference and don't send the hard copy to the institution.</p>
+
+      </div>
+    </body>
+</html>

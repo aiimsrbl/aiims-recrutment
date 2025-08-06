@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<!--Meta Tags-->
+		<%- include ('../commons/meta-tags.ejs') %>
+
+		<!-- Title -->
+		<title>AIIMS Raebareli Management - All Advertisements </title>
+		<link rel="stylesheet" href="/static/fonts/fonts/font-awesome.min.css">
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/dark-style.css" rel="stylesheet" />
+	    <link href="/static/css/transparent-style.css" rel="stylesheet" />
+		<link href="/static/css/admin-custom.css" rel="stylesheet" />
+
+		<!-- c3.js Charts Plugin -->
+		<link href="/static/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+
+		<!-- DATA TABLE CSS -->
+		<link href="/static/plugins/datatable/css/dataTables.bootstrap5.css" rel="stylesheet" />
+		<link href="/static/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+		<!-- Slect2 css -->
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- p-scroll bar css-->
+		<link href="/static/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+		<!---Font icons-->
+		<link href="/static/css/icons.css" rel="stylesheet"/>
+
+		<!-- Color-Skins -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+		<link rel="stylesheet" href="/static/color-skins/demo.css"/>
+	</head>
+		<body class="app sidebar-mini">
+
+
+		<!--Loader-->
+		<%- include ('loader.ejs') %>
+
+		<div class="page">
+			<div class="page-main">
+
+				<!-- app-header---->
+				<%- include ('header.ejs') %>
+				<!-- app-header End---->
+
+				<!-- Sidebar menu-->
+				<%- include ('sidebar-menu.ejs') %>
+
+				<div class="app-content">
+					<div class="side-app">
+						<div class="page-header">
+							<h4 class="page-title">All Advertisements</h4>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="javascript:void(0);">Advertisements</a></li>
+								<li class="breadcrumb-item active" aria-current="page">All Advertisements</li>
+							</ol>
+
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">All Advertisements</div>
+
+									</div>
+									<div class="card-body">
+										<div class="table-responsive">
+											<table id="example2" class="table hover table-bordered" >
+												<thead>
+													<tr>
+														<th>Refrence Number</th>
+														<th>Title</th>
+														<th>Published Date</th>
+														<th>Status</th>
+														<th>PDF/DocFile</th>
+														<th>Advertisement Description</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<%for(let i = 0; i < adv.length; i++) {%>
+													<tr>
+														<td><%=adv[i].refrence_number%></td>
+														<td><%=adv[i].title%></td>
+														<td><%=adv[i].published_date%></td>
+														<%if(adv[i].status == 'Active') {%>
+														<td><a href="javascript:void(0);" class="badge bg-success"><%=adv[i].status%></a></td>
+														<%} else {%>
+														<td><a href="javascript:void(0);" class="badge bg-danger"><%=adv[i].status%></a></td>
+														<%}%>
+														<td><%=adv[i].fileName%></td>
+														<td><%=adv[i].description%></td>
+														<td><button class="btn btn-danger btn-sm mb-1" onclick="deleteAdv('<%=adv[i]._id%>')"><i class="fa fa-trash-o" ></i> Delete</button></td>
+													</tr>
+													<%}%>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- FOOTER -->
+			<%- include ('footer.ejs') %>
+			<!-- FOOTER END -->
+
+		</div>
+
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
+
+
+		<!-- Dashboard js -->
+		<script src="/static/js/vendors/jquery.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/static/js/vendors/selectize.min.js"></script>
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
+		<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+		<!-- Fullside-menu Js-->
+		<script src="/static/plugins/toggle-sidebar/sidemenu.js"></script>
+
+		<!-- DATA TABLE JS-->
+		<script src="/static/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="/static/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+		<script src="/static/plugins/datatable/js/dataTables.buttons.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+		<script src="/static/plugins/datatable/js/jszip.min.js"></script>
+		<script src="/static/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+		<script src="/static/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.html5.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.print.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.colVis.min.js"></script>
+		<script src="/static/plugins/datatable/dataTables.responsive.min.js"></script>
+		<script src="/static/plugins/datatable/responsive.bootstrap5.min.js"></script>
+		<script src="/static/js/datatable.js"></script>
+
+		<!-- Select2 js -->
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+
+		<!-- p-scroll bar Js-->
+		<script src="/static/plugins/pscrollbar/pscrollbar.js"></script>
+		<script src="/static/plugins/pscrollbar/pscroll.js"></script>
+
+	 <!-- sticky Js-->
+		<script src="/static/js/sticky-1.js"></script>
+
+		<!--Counters -->
+		<script src="/static/plugins/counters/counterup.min.js"></script>
+		<script src="/static/plugins/counters/waypoints.min.js"></script>
+		<script src="/static/plugins/counters/numeric-counter.js"></script>
+
+
+		<!-- Custom Js-->
+		<script src="/static/js/admin-custom.js"></script>
+		<script src="/static/js/themecolors.js"></script>
+
+		<script>
+			function deleteAdv(id){
+				if(confirm("Are you sure?")){
+					$.ajax({
+						url: `/management/advertisement/delete/${id}`,
+					})
+					.done(function(response) {
+
+						if(response.success){
+							alert('Deleted Successful');
+							location.reload();
+						} else {
+							alert(`Error! ${response.msg}`)
+						}
+					})
+				}
+			}
+		</script>
+
+
+	</body>
+</html>

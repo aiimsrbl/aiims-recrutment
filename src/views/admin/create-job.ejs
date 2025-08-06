@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+	<!--Meta Tags-->
+	<%- include ('../commons/meta-tags.ejs') %>
+
+
+		<!-- Title -->
+		<title>AIIMS Raebareli Management - Create Job</title>
+		<link rel="stylesheet" href="/static/fonts/fonts/font-awesome.min.css">
+
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/dark-style.css" rel="stylesheet" />
+		<link href="/static/css/transparent-style.css" rel="stylesheet" />
+		<link href="/static/css/admin-custom.css" rel="stylesheet" />
+
+		<!-- Select2 Plugin -->
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- WYSIWYG Editor css -->
+		<link href="/static/plugins/wysiwyag/richtext.css" rel="stylesheet" />
+
+		<!-- p-scroll bar css-->
+		<link href="/static/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+		<!---Font icons-->
+		<link href="/static/css/icons.css" rel="stylesheet" />
+
+		<!-- Color-Skins -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all"
+			href="/static/color-skins/color-skins/color10.css" />
+		<link rel="stylesheet" href="/static/color-skins/demo.css" />
+</head>
+
+<body class="app sidebar-mini">
+
+
+
+	<!--Loader-->
+	<%- include ('loader.ejs') %>
+
+		<div class="page">
+			<div class="page-main">
+
+				<!-- app-header---->
+				<%- include ('header.ejs') %>
+					<!-- app-header End---->
+
+					<!-- Sidebar menu-->
+					<%- include ('sidebar-menu.ejs') %>
+
+						<div class="app-content">
+							<div class="side-app">
+								<div class="page-header">
+									<h4 class="page-title">Create New Position</h4>
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="javascript:void(0);">Vacancy</a></li>
+										<li class="breadcrumb-item active" aria-current="page">New Position</li>
+									</ol>
+
+								</div>
+								<div class="row row-cards">
+									<% if(post){ %> 
+										<% if(success){ %> 
+										<div class="col-sm-12">
+											<div class="alert alert-success">
+												<button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+													<strong>SUCCESS!</strong>
+												<hr class="message-inner-separator">
+												<p><%=msg%></p>
+											</div>
+										</div>
+										<%} else {%>
+										<div class="col-sm-12 ">
+											<div class="alert alert-danger">
+												<button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+												<strong>ERROR!</strong>
+												<hr class="message-inner-separator">
+												<p><%=msg%></p>
+											</div>
+										</div>
+										<% } %>
+										<% } %>
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-header">
+												<div class="card-title">Create New Position</div>
+											</div>
+											<div class="card-body">
+												<form method="post">
+													<input type="hidden" name="_csrf" value="<%=_csrf%>">
+													<div class="row">
+														<div class="col-sm-6 col-md-6">
+															<div class="mb-3">
+																<label class="form-label">Adv. Ref. number</label>
+																<select
+																	class="form-control select2-show-search border-bottom-0 w-100 select2-show-search"
+																	name="advRefNo" data-placeholder="Select" required>
+																	<optgroup label="Adv. Ref. number">
+																		<option value="">--Select--</option>
+																		<%for(let i=0; i < adv.length; i++) {%>
+																			<option>
+																				<%=adv[i].refrence_number%>
+																			</option>
+																			<%}%>
+																	</optgroup>
+																</select>
+															</div>
+														</div>
+
+
+														<div class="col-sm-6 col-md-6">
+															<div class="mb-3 ">
+																<label class="form-label">Name of Vacancy</label>
+																<input type="text" class="form-control w-100"
+																	name="name" placeholder="Enter vacancy name" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-3">
+															<div class="mb-3 ">
+																<label class="form-label">Salary</label>
+																<input type="number" class="form-control w-100"
+																	name="salary" placeholder="Enter Salary" required>
+																<div class="invalid-feedback">Invalid feedback</div>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-3">
+															<div class="mb-3 ">
+																<label class="form-label">Start Date</label>
+																<input type="date" class="form-control w-100"
+																	name="startDate" placeholder="dd/mm/yyyy" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-3">
+															<div class="mb-3 ">
+																<label class="form-label">End Date</label>
+																<input type="date" class="form-control w-100" name="endDate"
+																	placeholder="dd/mm/yyyy" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-3">
+															<div class="mb-3 ">
+																<label class="form-label">Job Type</label>
+																<select
+																	class="form-control select2-show-search border-bottom-0 w-100"
+																	name="type" data-placeholder="Select" required>
+																	<optgroup label="Job Type">
+																		<option value="">Select</option>
+
+																		<option>Resident</option>
+																		<option>Teaching</option>
+																		<option>Non Teaching</option>
+
+
+																	</optgroup>
+																</select>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">UR Fee</label>
+																<input type="number" class="form-control w-100" name="urFee"
+																	placeholder="Enter UR Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">OBC Fee</label>
+																<input type="number" class="form-control w-100"
+																	name="obcFee" placeholder="Enter OBC Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">SC Fee</label>
+																<input type="number" class="form-control w-100" name="scFee"
+																	placeholder="Enter SC Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">ST Fee</label>
+																<input type="number" class="form-control w-100" name="stFee"
+																	placeholder="Enter ST Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">EWS Fee</label>
+																<input type="number" class="form-control w-100"
+																	name="ewsFee" placeholder="Enter EWS Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-2">
+															<div class="mb-3 ">
+																<label class="form-label">PwBD Fee</label>
+																<input type="number" class="form-control w-100"
+																	name="pwbdFee" placeholder="Enter Pwbd Fee" required>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-4">
+															<div class="mb-3 ">
+																<label class="form-label">Retired Applicants Fee (In case of Teaching Vacancies)</label>
+																<input type="number" class="form-control w-100"
+																	name="retdFee" placeholder="Retired Applicants Fee" required>
+															</div>
+														</div>
+
+
+														<div class="col-sm-3 col-md-12">
+															<div class="mb-3">
+																<label class="form-label">Description (Optinal)</label>
+																<textarea class="content" name="description"
+																	placeholder="Enter Description"></textarea>
+															</div>
+														</div>
+														<div class="col-sm-3 col-md-4">
+															<div class="mb-3">
+																<label class="form-label">Job Status Active</label>
+																<div class="d-md-flex ad-post-details">
+																	<label class="custom-control custom-radio mb-2 me-4">
+																		<input type="radio" name="status"
+																			class="custom-control-input" value="Active"
+																			checked="">
+																		<span
+																			class="custom-control-label text-muted">YES</span>
+																	</label>
+																	<label class="custom-control custom-radio  mb-2 me-4">
+																		<input type="radio" name="status"
+																			class="custom-control-input" value="Inactive">
+																		<span
+																			class="custom-control-label text-muted">NO</span>
+																	</label>
+
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<div class="card-footer text-center">
+														<button type="reset"
+															class="btn btn-danger waves-effect waves-light">CANCEL</button>
+														<button type="submit"
+															class="btn btn-success waves-effect waves-light">SAVE</button>
+													</div>
+												</form>
+												</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+			</div>
+
+			<!-- FOOTER -->
+			<%- include ('footer.ejs') %>
+				<!-- FOOTER END -->
+
+		</div>
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
+
+
+		<!-- Dashboard js -->
+		<script src="/static/js/vendors/jquery.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+		<script src="/static/js/vendors/selectize.min.js"></script>
+		<script src="/static/js/vendors/jquery.tablesorter.min.js"></script>
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
+		<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+		<!-- Fullside-menu Js-->
+		<script src="/static/plugins/toggle-sidebar/sidemenu.js"></script>
+
+
+		<!--Select2 js -->
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+		<script src="/static/js/select2.js"></script>
+
+		<!-- WYSIWYG Editor js -->
+		<script src="/static/plugins/wysiwyag/jquery.richtext.js"></script>
+		<script src="/static/js/formeditor.js"></script>
+
+		<!-- p-scroll bar Js-->
+		<script src="/static/plugins/pscrollbar/pscrollbar.js"></script>
+		<script src="/static/plugins/pscrollbar/pscroll.js"></script>
+
+		<!-- sticky Js-->
+		<script src="/static/js/sticky-1.js"></script>
+
+		<!--Counters -->
+		<script src="/static/plugins/counters/counterup.min.js"></script>
+		<script src="/static/plugins/counters/waypoints.min.js"></script>
+
+
+		<!-- Custom Js-->
+		<script src="/static/js/admin-custom.js"></script>
+		<script src="/static/js/themecolors.js"></script>
+
+
+</body>
+
+</html>

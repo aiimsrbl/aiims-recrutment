@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <%- include ('../commons/meta-tags.ejs') %>
+        <title>AIIMS Raebareli Management - User Type Menus</title>
+        <link rel="stylesheet" href="/static/fonts/fonts/font-awesome.min.css">
+        <link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/static/css/style.css" rel="stylesheet" />
+        <link href="/static/css/dark-style.css" rel="stylesheet" />
+        <link href="/static/css/transparent-style.css" rel="stylesheet" />
+        <link href="/static/css/admin-custom.css" rel="stylesheet" />
+        <link href="/static/css/icons.css" rel="stylesheet" />
+</head>
+
+<body class="app sidebar-mini">
+    <%- include('loader.ejs') %>
+        <div class="page">
+            <div class="page-main">
+                <%- include('header.ejs') %>
+                    <%- include('sidebar-menu.ejs') %>
+                        <div class="app-content">
+                            <div class="side-app">
+                                <div class="page-header">
+                                    <h4 class="page-title">User Type Menus</h4>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">User Types</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Menu List</li>
+                                    </ol>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="card-title">User Type & Menu Structure</div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="accordion" id="menuAccordion">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="heading0">
+                                                            <button class="accordion-button" type="button"
+                                                                data-bs-toggle="collapse" data-bs-target="#collapse0"
+                                                                aria-expanded="true" aria-controls="collapse0">
+                                                                <%= menu_bar.user_type %>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse0" class="accordion-collapse collapse show"
+                                                            aria-labelledby="heading0" data-bs-parent="#menuAccordion">
+                                                            <div class="accordion-body">
+                                                                <form id="menuPermissionForm">
+                                                                    <table class="table table-bordered">
+                                                                        <thead class="bg-light">
+                                                                            <tr>
+                                                                                <th style="width: 100px;">Action</th>
+                                                                                <th>Permissions</th>
+                                                                                <th>Status</th>
+                                                                            </tr>
+                                                                        </thead>
+
+
+
+
+                                                                      <tbody>
+    <% for (let j = 0; j < menu_bar.menu_items.length; j++) { %>
+        <% const item = menu_bar.menu_items[j]; %>
+        <tr>
+            <td>
+                <div class="form-check form-switch">
+                    <input
+                        class="form-check-input parent-toggle"
+                        type="checkbox"
+                        role="switch"
+                        name="permissions"
+                        data-index="<%= j %>"
+                        data-menu='<%- JSON.stringify(item) %>'
+                        data-path="<%= item.path %>"
+                        value="<%= item.path %>"
+                        <%= item.allowed ? 'checked' : '' %>>
+                </div>
+            </td>
+            <td><strong><%= item.menu_name %></strong></td>
+            <td>
+                <span
+                    class="badge <%= item.allowed ? 'bg-success' : 'bg-danger' %>"
+                    id="status-<%= item.path.replace(/[^a-zA-Z0-9_-]/g, '') %>">
+                    <%= item.allowed ? 'Active' : 'inActive' %>
+                </span>
+            </td>
+        </tr>
+
+        <% if (item.child && item.child.length > 0) { %>
+            <% item.child.forEach((sub, k) => { %>
+                <tr>
+                    <td>
+                        <div class="form-check form-switch ms-3">
+                            <input
+                                class="form-check-input child-toggle"
+                                type="checkbox"
+                                role="switch"
+                                name="permissions"
+                                data-menu='<%- JSON.stringify(sub) %>'
+                                data-parent-path="<%= item.path %>"
+                                value="<%= sub.path %>"
+                                <%= sub.allowed ? 'checked' : '' %>>
+                        </div>
+                    </td>
+                    <td class="ps-5"><%= sub.menu_name %></td>
+                    <td>
+                        <span
+                            class="badge <%= sub.allowed ? 'bg-success' : 'bg-danger' %>"
+                            id="status-<%= sub.path.replace(/[^a-zA-Z0-9_-]/g, '') %>">
+                            <%= sub.allowed ? 'Active' : 'inActive' %>
+                        </span>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } %>
+    <% } %>
+</tbody>
+
+
+
+                                                                   
+
+
+
+                                                                    </table>
+                                                                    <div class="text-end">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Submit
+                                                                            Changes</button>
+                                                                    </div>
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <%- include('footer.ejs') %>
+        </div>
+        <!-- Back to top -->
+		    <a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
+        <!-- Dashboard js -->
+        <script src="/static/js/vendors/jquery.min.js"></script>
+        <script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- sticky Js-->
+        <script src="/static/js/sticky-1.js"></script>
+
+
+        <!-- Custom Js-->
+        <script src="/static/js/admin-custom.js"></script>
+        <script src="/static/js/themecolors.js"></script>
+
+
+
+
+
+<!-- <script>
+  function updateStatusLabel(input) {
+    try {
+      const $input = $(input);
+      const data = JSON.parse($input.attr('data-menu'));
+      const isChecked = $input.is(':checked');
+      const key = (data.path || '').replace(/[^a-zA-Z0-9_-]/g, '');
+      const badge = $('#status-' + key);
+
+      badge.removeClass('bg-success bg-danger')
+           .addClass(isChecked ? 'bg-success' : 'bg-danger')
+           .text(isChecked ? 'Active' : 'inActive');
+    } catch (err) {
+      console.warn('Failed to update status badge:', err);
+    }
+  }
+
+  // 🔁 Parent toggle handler
+  $(document).on('change', '.parent-toggle', function () {
+    const isChecked = $(this).is(':checked');
+    const parentPath = $(this).data('path');
+
+    updateStatusLabel(this);
+
+    if (!isChecked) {
+      $(`.child-toggle[data-parent-path="${parentPath}"]`).each(function () {
+        $(this).prop('checked', false);
+        updateStatusLabel(this);
+      });
+    }
+  });
+
+  // 🔁 Child toggle handler
+  $(document).on('change', '.child-toggle', function () {
+    updateStatusLabel(this);
+  });
+
+  // 📨 Submit handler
+  $('#menuPermissionForm').on('submit', function (e) {
+    e.preventDefault();
+
+    const stateMap = {};
+    $('input[name="permissions"]').each(function () {
+      const data = JSON.parse($(this).attr('data-menu'));
+      const key = data.path;
+      const isChecked = $(this).is(':checked');
+      stateMap[key] = isChecked;
+    });
+
+    const currentMenu = <%- JSON.stringify(menu_bar.menu_items) %>;
+
+    const updatedMenu = currentMenu.map(menu => {
+      const parentAllowed = stateMap[menu.path] || false;
+      const updated = { ...menu, allowed: parentAllowed };
+
+      if (Array.isArray(menu.child)) {
+        updated.child = menu.child.map(child => {
+          const childAllowed = stateMap[child.path] || false;
+          return {
+            ...child,
+            allowed: parentAllowed ? childAllowed : false
+          };
+        });
+      }
+
+      return updated;
+    });
+
+    $.ajax({
+      url: '/api/role/update',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        user_type_id: '<%= menu_bar._id %>',
+        updated_data: updatedMenu
+      }),
+      success: function (res) {
+        if (res.status) {
+          alert('Permissions updated successfully');
+          location.reload();
+        } else {
+          alert('Failed to update permissions');
+        }
+      },
+      error: function () {
+        alert('Error communicating with server');
+      }
+    });
+  });
+</script> -->
+
+<!-- 
+<script>
+  function updateStatusLabel(input) {
+    try {
+      const $input = $(input);
+      const data = JSON.parse($input.attr('data-menu'));
+      const isChecked = $input.is(':checked');
+      const key = (data.path || '').replace(/[^a-zA-Z0-9_-]/g, '');
+      const badge = $('#status-' + key);
+
+      badge.removeClass('bg-success bg-danger')
+           .addClass(isChecked ? 'bg-success' : 'bg-danger')
+           .text(isChecked ? 'Active' : 'inActive');
+    } catch (err) {
+      console.warn('Failed to update status badge:', err);
+    }
+  }
+
+  // 🔁 Parent toggle handler
+  $(document).on('change', '.parent-toggle', function () {
+    const isChecked = $(this).is(':checked');
+    const parentPath = $(this).data('path');
+
+    updateStatusLabel(this);
+
+    if (!isChecked) {
+      $(`.child-toggle[data-parent-path="${parentPath}"]`).each(function () {
+        $(this).prop('checked', false);
+        updateStatusLabel(this);
+      });
+    }
+  });
+
+  // 🔁 Child toggle handler
+  $(document).on('change', '.child-toggle', function () {
+    const $child = $(this);
+    const parentPath = $child.data('parent-path');
+
+    updateStatusLabel(this);
+
+    // 🔍 Check if *any* sibling child is still checked
+    const anyChecked = $(`.child-toggle[data-parent-path="${parentPath}"]`).is(':checked');
+
+    // 🔁 If none checked, uncheck parent
+    if (!anyChecked) {
+      const $parent = $(`.parent-toggle[data-path="${parentPath}"]`);
+      $parent.prop('checked', false);
+      updateStatusLabel($parent.get(0));
+    }
+  });
+
+  // 📨 Submit handler
+  $('#menuPermissionForm').on('submit', function (e) {
+    e.preventDefault();
+
+    const stateMap = {};
+    $('input[name="permissions"]').each(function () {
+      const data = JSON.parse($(this).attr('data-menu'));
+      const key = data.path;
+      const isChecked = $(this).is(':checked');
+      stateMap[key] = isChecked;
+    });
+
+    const currentMenu = <%- JSON.stringify(menu_bar.menu_items) %>;
+
+    const updatedMenu = currentMenu.map(menu => {
+      const parentAllowed = stateMap[menu.path] || false;
+      const updated = { ...menu, allowed: parentAllowed };
+
+      if (Array.isArray(menu.child)) {
+        updated.child = menu.child.map(child => {
+          const childAllowed = stateMap[child.path] || false;
+          return {
+            ...child,
+            allowed: parentAllowed ? childAllowed : false
+          };
+        });
+      }
+
+      return updated;
+    });
+
+    $.ajax({
+      url: '/api/role/update',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        user_type_id: '<%= menu_bar._id %>',
+        updated_data: updatedMenu
+      }),
+      success: function (res) {
+        if (res.status) {
+          alert('Permissions updated successfully');
+          location.reload();
+        } else {
+          alert('Failed to update permissions');
+        }
+      },
+      error: function () {
+        alert('Error communicating with server');
+      }
+    });
+  });
+</script> -->
+
+
+<script>
+  function updateStatusLabel(input) {
+    try {
+      const $input = $(input);
+      const data = JSON.parse($input.attr('data-menu'));
+      const isChecked = $input.is(':checked');
+      const key = (data.path || '').replace(/[^a-zA-Z0-9_-]/g, '');
+      const badge = $('#status-' + key);
+
+      badge.removeClass('bg-success bg-danger')
+           .addClass(isChecked ? 'bg-success' : 'bg-danger')
+           .text(isChecked ? 'Active' : 'inActive');
+    } catch (err) {
+      console.warn('Failed to update status badge:', err);
+    }
+  }
+
+  // 🔁 Parent toggle handler
+  // $(document).on('change', '.parent-toggle', function () {
+  //   const isChecked = $(this).is(':checked');
+  //   const parentPath = $(this).data('path');
+
+  //   updateStatusLabel(this);
+
+  //   if (!isChecked) {
+  //     // Uncheck all children
+  //     $(`.child-toggle[data-parent-path="${parentPath}"]`).each(function () {
+  //       $(this).prop('checked', false);
+  //       updateStatusLabel(this);
+  //     });
+  //   }
+  // });
+
+  $(document).on('change', '.parent-toggle', function () {
+  const isChecked = $(this).is(':checked');
+  const parentPath = $(this).data('path');
+
+  updateStatusLabel(this); // always update the parent's badge
+
+  // ✅ Loop over children of this parent
+  $(`.child-toggle[data-parent-path="${parentPath}"]`).each(function () {
+    $(this).prop('checked', isChecked);
+    updateStatusLabel(this); // ✅ update each child’s badge
+  });
+});
+
+  // 🔁 Child toggle handler
+  $(document).on('change', '.child-toggle', function () {
+    const $child = $(this);
+    const parentPath = $child.data('parent-path');
+
+    updateStatusLabel(this);
+
+    const $siblingChildren = $(`.child-toggle[data-parent-path="${parentPath}"]`);
+    const anyChecked = $siblingChildren.is(':checked');
+
+    const $parent = $(`.parent-toggle[data-path="${parentPath}"]`);
+    $parent.prop('checked', anyChecked);
+    updateStatusLabel($parent.get(0));
+  });
+
+  // 📨 Submit handler
+  $('#menuPermissionForm').on('submit', function (e) {
+    e.preventDefault();
+
+    const stateMap = {};
+    $('input[name="permissions"]').each(function () {
+      const data = JSON.parse($(this).attr('data-menu'));
+      const key = data.path;
+      const isChecked = $(this).is(':checked');
+      stateMap[key] = isChecked;
+    });
+
+    const currentMenu = <%- JSON.stringify(menu_bar.menu_items) %>;
+
+    const updatedMenu = currentMenu.map(menu => {
+      const parentAllowed = stateMap[menu.path] || false;
+      const updated = { ...menu, allowed: parentAllowed };
+
+      if (Array.isArray(menu.child)) {
+        updated.child = menu.child.map(child => {
+          const childAllowed = stateMap[child.path] || false;
+          return {
+            ...child,
+            allowed: parentAllowed ? childAllowed : false
+          };
+        });
+
+        // 🔁 Sync parent if any child is allowed
+        const anyChildAllowed = updated.child.some(c => c.allowed);
+        updated.allowed = anyChildAllowed || updated.allowed;
+      }
+
+      return updated;
+    });
+
+    $.ajax({
+      url: '/api/role/update',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        user_type_id: '<%= menu_bar._id %>',
+        updated_data: updatedMenu
+      }),
+      success: function (res) {
+        if (res.status) {
+          alert('Permissions updated successfully');
+          location.reload();
+        } else {
+          alert('Failed to update permissions');
+        }
+      },
+      error: function () {
+        alert('Error communicating with server');
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+
+</html>

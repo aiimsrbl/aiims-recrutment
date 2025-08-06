@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+      border-collapse: collapse;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .mtstyle {
+      border: 0px solid #000;
+    }
+
+    .mtstyle th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    .mNewmtstyle th,
+    .mNewmtstyle td {
+      border: 1px solid #000;
+    }
+
+    .mtstyle tr:nth-child(even) {
+      background-color: #f1f1f3;
+    }
+  </style>
+  <table style="background-color: #ffffff; width: 100%; border: 0px;">
+    <tr>
+      <td>
+        <table
+          style="background-color: #fff;width: 1024px; font-size: 14px; border: 0px; margin:0px auto; background: #fff; border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;">
+
+          
+          
+          <tr>
+            <td style="border:0px ; padding: 20px; background-color: #fff; background: #fff; font-size:14px;">
+              <div style="min-height: 900px; background-color: #fff; background: #fff; font-size:14px;">
+                
+                <table class="mtstyle mNewmtstyle">
+                  <tr><td colspan="6" >
+                    <table>
+<tr>
+  <td style="border: 0px solid;"><h1 style="text-align: center;font-size:18px; font-family:Arial, Helvetica, sans-serif; color:#000; text-transform: uppercase;">
+    <b>All India Institute of Medical Sciences, Raebareli</b>
+   
+  </h1> 
+
+    <p style="text-align: center; font-size: 16px;"> <b>ATTENDANCE SHEET</b><br /><b><%if(data[0].post == 'Junior Resident'){%>Screening Test <%}%> <%if(data[0].post == 'Senior Resident'){%>Entrance Test <%}%></b> –  <%=data[0].post%> &nbsp;&nbsp;&nbsp;&nbsp;<b>|</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Post:</b> <%=department%>
+    <br/><b>Venue:</b> <%=data[0].examAddress%>
+    <br/><b>Date:</b>
+      <%=moment(data[0].examStartDateTime).format('DD-MMM-YYYY')%> &nbsp;&nbsp;&nbsp;&nbsp; <b>|</b> &nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Time:</b> <%=moment(data[0].examStartDateTime).format('HH:mm A')%> - <%=moment(data[0].examEndDateTime).format('HH:mm A')%>
+    </p>
+  </td>
+</tr>
+
+                    </table>
+                  </td></tr>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>Photo</th>
+                    <th>Roll No.<br />Applicant Name</th>
+                    <th>OMR Answer Sheet No.</th>
+                    <th>Applicant's Signature</th>
+                    <th>Left Hand Thumb Impression</th>
+                  </tr>
+                  <%for(var i=0; i < data.length; i++){%>
+                    
+                    <%if(16<=i+1 && 0==i%16){%>
+                      <tr><td colspan="6" >
+                        <table>
+    <tr>
+      <td style="border: 0px solid;"><h1 style="text-align: center;font-size:18px; font-family:Arial, Helvetica, sans-serif; color:#000; text-transform: uppercase; padding-top: 20px;">
+        <b>All India Institute of Medical Sciences, Raebareli</b>
+       
+      </h1> 
+    
+        <p style="text-align: center; font-size: 16px;"> <b>ATTENDANCE SHEET</b><br /><b><%if(data[0].post == 'Junior Resident'){%>Screening Test <%}%> <%if(data[0].post == 'Senior Resident'){%>Entrance Test <%}%></b> –  <%=data[0].post%> &nbsp;&nbsp;&nbsp;&nbsp;<b>|</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Post:</b> <%=department%>
+        <br/><b>Venue:</b> <%=data[0].examAddress%>
+        <br/><b>Date:</b>
+          <%=moment(data[0].examStartDateTime).format('DD-MMM-YYYY')%> &nbsp;&nbsp;&nbsp;&nbsp; <b>|</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        <b>Time:</b> <%=moment(data[0].examStartDateTime).format('HH:mm A')%> - <%=moment(data[0].examEndDateTime).format('HH:mm A')%>
+        </p>
+      </td>
+    </tr>
+    
+                        </table>
+                      </td></tr>
+                      <tr>
+                        <th>S.No.</th>
+                        <th>Photo</th>
+                        <th>Roll No.<br />Applicant Name</th>
+                        <th>OMR Answer Sheet No.</th>
+                        <th>Applicant's Signature</th>
+                        <th>Left Hand Thumb Impression</th>
+                      </tr>
+                       <%}%>
+                    <tr>
+                      <td>
+                        <%=i+1%>
+                      </td>
+                      <td><img height="63px" alt="photo" src="/static/uploads/applications/<%=data[i].photo%>" /></td>
+                      <td><b>
+                          <%=data[i].rollNumber%>
+                        </b><br /><b>
+                          <%=data[i].applicantName%>
+                        </b></td>
+                      <td >&nbsp;</td>
+                      <td >&nbsp;</td>
+                      <td >&nbsp;</td>
+                    </tr>
+                   
+                    <%}%>
+                </table>
+              </div>
+              <br><br><br><br>
+              <span style="float:right; border-top: 2px solid #000;"><b>Invigilator's Signature with Full
+                  Name</b></span>
+              <br><br><br>
+            </td>
+          </tr>
+          <tr style="background-color: #cdcdcd;">
+            <td style="text-align: center; border-top:1px solid #000; height: 20px; ;">
+
+              <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;"><br /><b><a
+                    target="_blank" style="color: #000; text-decoration: none;"
+                    href="https://www.aiimsrbl.edu.in">www.aiimsrbl.edu.in</a></b><br><b>HELPLINE &
+                  SUPPORT</b><br />Phone no: +91 0535-2704411 &nbsp;&nbsp;&nbsp; Email: recruitment@aiimsrbl.edu.in</p>
+            </td>
+          </tr>
+
+
+          <tr style="background-color: #cdcdcd;">
+            <td style="text-align: center; border-top:1px solid #000; height: 50px;;">
+
+              <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;">&#169; 2023 AIIMS
+                Raebareli. All Right Reserved.</p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+
+  </table>
+  <div style="text-align: center;">
+    <button onclick="window.print();return false;" style="margin:0px auto; height: 50px; background-color: green;">Print
+      Attendance Sheet</button>
+  </div>
+</body>
+
+</html>

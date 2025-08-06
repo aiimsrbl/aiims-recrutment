@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<!--Meta Tags-->
+		<%- include ('../commons/meta-tags.ejs') %>
+
+		<!-- Title -->
+		<title>Error!</title>
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/dark-style.css" rel="stylesheet" />
+		<link href="/static/css/transparent-style.css" rel="stylesheet" />
+
+		<!-- Font-awesome  Css -->
+		<link href="/static/css/icons.css" rel="stylesheet"/>
+
+		<!--Select2 Plugin -->
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- Custom scroll bar css-->
+		<link href="/static/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+		<!-- COLOR-SKINS -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+		<link rel="stylesheet" href="/static/color-skins/demo.css"/>
+
+	</head>
+	<body>
+
+		<!--Loader-->
+		<%- include ('../commons/loader.ejs') %>
+
+		<!--Header Section-->
+		<%- include ('../commons/header.ejs') %>
+		<!--Header Section-->
+
+		<!--Breadcrumb-->
+		<section>
+			<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+				<div class="header-text mb-0">
+					<div class="container">
+						<div class="text-center text-white ">
+							<h1 class="">Error !!</h1>
+							<ol class="breadcrumb text-center">
+								<li class="breadcrumb-item"><a href="/">Home</a></li>
+								<li class="breadcrumb-item active text-white" aria-current="page">Error</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/Breadcrumb-->
+
+		<!--lookscreen-Section-->
+		<div class="sptb">
+			<div class="container">
+				<!-- Page -->
+				<div class="">
+					<div class="page-content z-index-10">
+						<div class="container text-center">
+							<div class="display-1 mb-5"><%=statusCode%></div>
+							<div class="h2 mb-3"><%=error%></div>
+							<p class="h4 font-weight-normal mb-7 leading-normal"><%=description%></p>
+							<a class="btn  btn-secondary" href="/">
+								Back To Home
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- End Page -->
+			</div>
+		</div>
+		<!--/lookscreen-Section-->
+
+		<!--Footer Section-->
+		<%- include ('../commons/footer.ejs') %>
+		<!--Footer Section-->
+		
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
+
+		<!-- JQuery js-->
+		<script src="/static/js/vendors/jquery.min.js"></script>
+
+		<!-- Bootstrap js -->
+		<script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<!--JQuery Sparkline Js-->
+		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+		<!-- Circle Progress Js-->
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
+
+		<!--Horizontal Menu-->
+		<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+		<!--Owl Carousel js -->
+		<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+		<script src="/static/js/owl-carousel.js"></script>
+
+		<!--JQuery TouchSwipe js-->
+		<script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+		<!--Select2 js -->
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+		<script src="/static/js/select2.js"></script>
+
+		<!-- Cookie js -->
+		<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+		<script src="/static/plugins/cookie/cookie.js"></script>
+
+		<!-- Custom scroll bar Js-->
+		<script src="/static/plugins/pscrollbar/pscrollbar.js"></script>
+
+		<!-- sticky Js-->
+		<script src="/static/js/sticky.js"></script>
+
+		<!-- Swipe Js-->
+		<script src="/static/js/swipe.js"></script>
+
+		<!-- Scripts Js-->
+		<script src="/static/js/scripts2.js"></script>
+
+		<!-- Custom Js-->
+		<script src="/static/js/themecolors.js"></script>
+		<script src="/static/js/custom.js"></script>
+
+	</body>
+</html>

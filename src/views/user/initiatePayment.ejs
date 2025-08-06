@@ -1,0 +1,21 @@
+<form name="form1" method="post" action="https://www.sbiepay.sbi/secure/AggregatorHostedListener">
+    <table>
+       
+        <tr id="tran">
+            <th>Encrypted Transaction</th>
+            <td>
+                <textarea name="EncryptTrans" id="EncryptTrans" rows="4" cols="80" readonly
+                    style="resize: none"><%= Single_Paramresponce %></textarea>
+            </td>
+        </tr>
+        <tr id="merchant">
+            <th>Merchant ID</th>
+            <td>
+                <input type="text" name="merchIdVal" id="merchIdVal" value="<%= MerchantId %>">
+            </td>
+        </tr>
+        
+    </table>
+    <input class="btn btn-primary" type="submit" id="submitBtn" value="To Complete Registration Make Payment">
+           
+</form>

@@ -1,0 +1,267 @@
+<div class="header-main">
+
+    <!--Top Bar-->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-sm-4 col-4">
+                    <div class="top-bar-left d-flex">
+                        <div class="clearfix">
+                            <ul class="socials">
+                                <li>
+                                    <a class="social-icon text-dark" href="javascript:void(0);"><i
+                                            class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon text-dark" href="javascript:void(0);"><i
+                                            class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon text-dark" href="javascript:void(0);"><i
+                                            class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon text-dark" href="javascript:void(0);"><i
+                                            class="fa fa-google-plus"></i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="clearfix">
+                            <ul class="contact border-start">
+                                <li class="d-lg-block text-white">
+                                    <a href="javascript:void(0);" class="callnumber text-white"><span><i
+                                                class="fa fa-phone me-1 text-white"></i>:  +91 0535-2700020</span></a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-8 col-4 d-none d-lg-block">
+                    <div class="clearfix text-center">
+                        <div class="header-search-logo d-none d-lg-block pt-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-8 col-4">
+                    <div class="top-bar-right">
+                        <ul class="custom">
+                            <% if(locals.session && locals.session.user && locals.session.user.id) {%>
+                            <li>
+                                <a class="btn btn-outline-warning" href="javascript:void(0);" >
+                                    <i class="fa fa-user me-1"></i>
+                                    <span>
+                                        <%=locals.session.user.name%>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="btn btn-warning btn-block" data-bs-toggle="dropdown">
+                                    <i class="fa fa-home me-1"></i><span> My Dashboard</span></a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <%if(locals.session.user.role != 'MANAGEMENT'){%>
+                                    <a href="/profile" class="dropdown-item">
+                                        <i class="dropdown-icon icon icon-user"></i> My Profile
+                                    </a>
+                                    <a class="dropdown-item" href="/my-jobs">
+                                        <i class="dropdown-icon icon icon-speech"></i> Applied Jobs
+                                    </a>
+                                    <%} else {%>
+                                    <a class="dropdown-item" href="/management/dashboard">
+                                        <i class="dropdown-icon icon icon-speech"></i> Management Panel
+                                    </a>
+                                    <%}%>
+                                    <!-- <a class="dropdown-item" href="javascript:void(0);">
+                                        <i class="dropdown-icon icon icon-bell"></i> Notifications
+                                    </a>
+                                    <a href="mydash.html" class="dropdown-item">
+                                        <i class="dropdown-icon  icon icon-settings"></i> Account Settings
+                                    </a> -->
+                                    <a class="dropdown-item" href="/logout">
+                                        <i class="dropdown-icon icon icon-power"></i> Log out
+                                    </a>
+                                </div>
+                            </li>
+                            <%} else {%>
+                            <li>
+                                <a href="/register" class=""><i class="fa fa-user me-1"></i> <span>Register</span></a>
+                            </li>
+                            <li>
+                                <a href="/login" class=""><i class="fa fa-sign-in me-1"></i> <span>Login</span></a>
+                            </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-8 col-lg-8 col-sm-8 col-5 d-none d-lg-block">
+                    <div class="clearfix text-center">
+                        <div class="header-search-logo d-none d-lg-block pt-1">
+                            <a class="header-logo" href="/">
+                                <img src="/static/images/aiims.png" class=""
+                                    alt="dashr logo header-logo">
+                            </a>
+                            <h1 class="font-weight-bold mb-0 fs-30  mt-0 leading-tight text-white">
+                                अखिल भारतीय आयुर्विज्ञान संस्थान, रायबरेली
+                            </h1>
+                            <h2 class="font-weight-light mb-0 fs-22  mt-0 leading-tight text-white"> All India Institute
+                                of Medical Sciences, Raebareli </h2>
+                            <p class="font-weight-light mb-0 fs-16   leading-tight text-white">Dalmau Road, Munshiganj,
+                                Raebareli, Uttar Pradesh. India - 229405</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-8 col-5">
+                    <div class="top-bar-right">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Top Bar-->
+
+
+    <!-- Mobile Header -->
+    <div class="sticky">
+        <div class="horizontal-header clearfix ">
+            <div class="container">
+                <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
+                <span class="smllogo d-block d-lg-none">
+
+                    <span class="font-weight-bold mb-0 fs-16 text-dark mt-0 leading-tight">अखिल भारतीय आयुर्विज्ञान
+                        संस्थान, रायबरेली
+                        <br />
+                        <span class="font-weight-light mb-0 fs-16 text-dark mt-0 leading-tight">
+                            All India Institute of Medical Sciences, Raebareli</span>
+                    </span>
+                </span>
+
+
+                <a href="javascript:void(0);" class="callusbtn"><i class="fa fa-bell text-body"
+                        aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Header -->
+
+    <div class="header-style horizontal-main clearfix">
+        <div class="horizontal-mainwrapper container clearfix">
+            <!--Nav-->
+
+            <nav class="horizontalMenu clearfix d-md-flex">
+                <span class="smllogo d-block d-sm-none">
+                    <img style=" width:120px; margin-top:-15px;"
+                        src="/static/images/aiims.png" class="" alt="dashr logo">
+                    <p>&nbsp;</p>
+                </span>
+                <ul class="horizontalMenu-list">
+                    <li><a href="https://www.aiimsrbl.edu.in/">Home </a></li>
+                    <li><a href="javascript:void(0);">Institute <span class="fa fa-caret-down m-0"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="https://aiimsrbl.edu.in/history">History</a></li>
+                            <li><a href="https://aiimsrbl.edu.in/logo">Logo</a></li>
+                            <li><a href="https://aiimsrbl.edu.in/aiims-acts">AIIMS Acts</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="javascript:void(0);">Administration <span class="fa fa-caret-down m-0"></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="https://www.aiimsrbl.edu.in/president.php">President</a>
+                            </li>
+                            <li>
+                                <a href="https://www.aiimsrbl.edu.in/exdirector.php">Executive Director</a>
+                            </li>
+
+                            <li aria-haspopup="true"><a href="javascript:void(0);">Administrative Officer <i
+                                        class="fa fa-angle-right float-end mt-1 d-none d-lg-block"></i></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="https://aiimsrbl.edu.in/president">President</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://aiimsrbl.edu.in/executive-director">Executive Director</a>
+                                            </li>
+                                            <li aria-haspopup="true"><span class="horizontalMenu-click02"><i class="horizontalMenu-arrow fa fa-angle-down"></i></span>
+                                                <a href="javascript:void(0);">Administrative Officer <i class="fa fa-angle-right float-end mt-1 d-none d-lg-block"></i></a>
+                                                <ul class="sub-menu">
+                                                    <li aria-haspopup="true">
+                                                    <a href="https://aiimsrbl.edu.in/deputy-director">Deputy Director</a>
+                                                    </li>
+                                                    <li aria-haspopup="true">
+                                                    <a href="https://aiimsrbl.edu.in/senior-administrative-officer">Senior Administrative Officer</a>
+                                                    </li>
+                                                    <li aria-haspopup="true">
+                                                    <a href="https://aiimsrbl.edu.in/employee-list">Employees List</a>
+                                                    </li>
+                                                    <li aria-haspopup="true">
+                                                    <a href="https://aiimsrbl.edu.in/salary-structure">Salary Structure</a>
+                                                    </li>
+                                                   
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="https://aiimsrbl.edu.in/financial-advisor">Financial Advisor</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://aiimsrbl.edu.in/organizational-structure">Organizational Structure</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://aiimsrbl.edu.in/annual-report">Annual Report</a>
+                                            </li>
+                                        </ul>
+                            </li>
+                           
+                        </ul>
+                    </li>
+                    <li><a href="https://aiimsrbl.edu.in/departments">Departments </a></li>
+
+                    <li><a href="javascript:void(0);">Procurements <span class="fa fa-caret-down m-0"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="https://aiimsrbl.edu.in/current/tenders">Tenders</a></li>
+                            <li> <a href="https://aiimsrbl.edu.in/current/quotation">Quotations</a></li>
+                            <li> <a href="https://aiimsrbl.edu.in/current/pac">PAC</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://aiimsrbl.edu.in/news-circular">News & Circulars </a></li>
+
+                    <li class="active"><a class="active" href="/">Recruitments </a>
+                    </li>
+
+
+
+                    <li><span class="horizontalMenu-click"><i class="horizontalMenu-arrow fa fa-angle-down"></i></span>
+                        <a href="javascript:void(0);">Official <span class="fa fa-caret-down m-0"></span></a>
+                        <ul class="sub-menu">
+                             <li>
+                                    <a href="https://aiimsrbl.edu.in/telephone-directory">Directory</a>
+                                    </li>
+                            <li>
+                                <a href="https://aiimsrbl.edu.in/current-office-order">Office Order</a>
+                            </li>
+                            <li>
+                                <a href="/official-download">Official Downloads</a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li><a href="https://aiimsrbl.edu.in/rti-disclouser">RTI Disclosure</a></li>
+                    <li><a href="https://aiimsrbl.edu.in/contacts">Contact Us</a></li>
+
+                </ul>
+
+            </nav>
+            <!--/Nav-->
+        </div>
+    </div>
+</div>

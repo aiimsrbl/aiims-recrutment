@@ -1,0 +1,95 @@
+<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+
+<aside class="app-sidebar doc-sidebar">
+    <div class="side-header">
+        <a class="header-brand" href="/management/dashboard">
+            <img src="/static/images/admin-logo.jpg" class="header-brand-img light-logo" alt="Logo">
+            <img src="/static/images/admin-logo.jpg" class="header-brand-img dark-logo" alt="Logo">
+            <img src="/static/images/favicon.ico" class="header-brand-img toggle-logo" alt="Logo">
+        </a>
+    </div>
+
+    <div class="app-sidebar__user clearfix">
+        <div class="dropdown user-pro-body">
+            <div>
+                <img src="/static/images/users/male/25.jpg" alt="user-img" class="avatar avatar-lg brround">
+            </div>
+            <div class="user-info">
+                <h2>
+                    <%= locals.session.user.name %>
+                </h2>
+                <span>
+                    <%= locals.session.user.email %>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="side-menu"></ul>
+</aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const res = await fetch('/api/sidebar/menu', { cache: "no-store" });
+            const data = await res.json();
+
+            const menuContainer = document.querySelector('.side-menu');
+
+            // Clear existing menu
+            menuContainer.innerHTML = '';
+
+            data.menu_bar.forEach(item => {
+                const li = document.createElement('li');
+                const child = Array.isArray(item.child) && item.child.length > 0 ? item.child : null;
+                if (item.allowed) {
+                    if (child) {
+                        li.classList.add('slide');
+                        li.innerHTML = `
+            <a class="side-menu__item has-submenu" href="javascript:void(0);">
+                <i class="side-menu__icon fa fa-window-restore"></i>
+                <span class="side-menu__label">${item.menu_name}</span>
+                <i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu" style="display: none;">
+                ${child
+                                .filter(sub => sub.allowed)
+                                .map(sub => `
+                        <li><a class="slide-item" href="${sub.path}">${sub.menu_name}</a></li>
+                    `).join('')}
+            </ul>
+        `;
+                    } else {
+                        li.innerHTML = `
+            <a class="side-menu__item" href="${item.path}">
+                <i class="side-menu__icon fa fa-window-restore"></i>
+                <span class="side-menu__label">${item.menu_name}</span>
+            </a>
+        `;
+                    }
+                }
+
+                menuContainer.appendChild(li);
+            });
+
+            // Add click listeners for submenu toggling
+            const submenuTriggers = document.querySelectorAll('.has-submenu');
+            submenuTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const subMenu = trigger.nextElementSibling;
+                    if (subMenu && subMenu.classList.contains('slide-menu')) {
+                        subMenu.style.display = subMenu.style.display === 'none' || subMenu.style.display === ''
+                            ? 'block'
+                            : 'none';
+                    }
+                });
+            });
+
+        } catch (err) {
+            console.error('Failed to load sidebar menu:', err);
+        }
+    });
+
+</script>

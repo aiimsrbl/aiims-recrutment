@@ -1,0 +1,148 @@
+<html lang="en">
+    <head>
+    
+
+    </head>
+
+    <body >
+      <style>
+       table {
+            border-collapse: collapse;
+            width: 100%; 
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif; font-size: 12px;
+        }
+          
+        .mtstyle th, .mtstyle td {
+            text-align: left;
+            padding: 0px;margin: 0px;
+            border:0px solid #000;border-collapse: collapse; 
+        }
+        .mNewtstyle th, .mNewtstyle td {
+            text-align: left;
+            padding: 8px;
+            border:1px solid #000;border-collapse: collapse; 
+        }
+        .mtstyle th {
+            width:35%;
+        }
+      .mtstyle  tr:nth-child(even) {
+           
+        }
+    </style>
+        <table style="background-color: rgb(168, 168, 171); width: 100%; border: 0px;">
+         <tr><td>
+<table  style="background-color: #0953e5;width: 850px; font-size: 14px; border: 0px; margin:0px auto; background: #d6d8dc; border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;">
+  
+  <tr><td  vertical-align="top" style="text-align: center;">
+    <p>&nbsp;</p>
+    <img width="700px;" src="/static/images/aiims-rbl.png"/>
+
+<p style="font-size: 18px;">www.aiimsrbl.edu.in</p>
+</td>
+</tr>
+<tr>
+  <td style="border-top: 1px solid #fff; margin-top: 10px; ">
+    <p>&nbsp;</p>
+  
+  </td>
+</tr>
+<tr><td style="border:0px ; padding: 20px; background-color: #fff; background: #fff; font-size:14px;">
+  <div style="min-height:500px; background-color: #fff; background: #fff; font-size:14px;">
+    <table style="width:100%"><tr><td style="width:50%; text-align: left;">Ref. No: <%=data.advRefNo%></td><td  style="width:50%; text-align: right;" >Regi. No: <%=data.registrationNumber%></td></tr></table>
+    <h1 style="text-align: center;font-size:22px; font-family:Arial, Helvetica, sans-serif; color:#000;">ADMIT CARD<br/>
+      <span style="font-size: 18px;">Screening Examination - <%=data.post%></span></h1>
+    
+<p>&nbsp;</p>
+<h4 style="text-align:center; font-size: 18px; "><b>Venue:</b> <span style="font-weight: 500;"><%=data.examAddress%></span>
+</h4>
+<table  class="mtstyle">
+  <tr><td >
+    <table class="mNewtstyle">
+      <tr><th style="text-transform:uppercase">Roll Number: </th><td style="text-transform:uppercase"><span style="font-size: 18px;"><%=data.rollNumber%></span></td></tr> 
+      <tr><th style="text-transform:uppercase">Applicant Name: </th><td style="text-transform:uppercase"><%=data.applicantName%></td></tr>
+      <tr><th style="text-transform:uppercase">Father/Husband Name: </th><td style="text-transform:uppercase"><%=data.fatherOrHusbandName%></td></tr>
+      <tr><th style="text-transform:uppercase">Date of Birth: </th><td style="text-transform:uppercase"><%=moment(data.dob).format('DD-MM-YYYY')%></td></tr>
+      <tr><th style="text-transform:uppercase">Gender: </th><td style="text-transform:uppercase"><%=data.gender%></td></tr>
+      <tr><th style="text-transform:uppercase">Applied Post:</th><td style="text-transform:uppercase"><%=data.post%></td></tr>
+      <tr><th style="text-transform:uppercase">Post/Subject Code: </th><td style="text-transform:uppercase"><%=data.subjectCode%></td></tr>
+     <tr><th>PwD:</th><td ><%=data.pwbd%>   &nbsp;&nbsp;&nbsp; <%if(data.pwbd == 'yes'){%>Disability: <%=data.pwbdPercentage%>%<%}%>  </td></tr>
+      <tr><th style="text-transform:uppercase">Exam Date (Day): </th><td style="text-transform:uppercase"><%=moment(data.examDateTime).format('DD-MM-YYYY')%> (<%=moment(data.examDateTime).format('dddd')%>)</td></tr>
+      <tr><th style="text-transform:uppercase">Reporting Time: </th><td style="text-transform:uppercase"><%=moment(data.examDateTime).format('hh:mm A')%></td></tr>
+      <tr><th style="text-transform:uppercase">Exam Duration: </th><td style="text-transform:uppercase"><%=moment(data.examStartDateTime).format('hh:mm A')%> - <%=moment(data.examEndDateTime).format('hh:mm A')%></td></tr>
+     </table>
+    
+  </td><td style="text-align:center ; border:1px solid #000;border-left: 0px solid; padding: 8px;"><img width="140px" alt="photo" src="/static/uploads/applications/<%=data.photo%>"/>
+    <br/><br/><img height="70px" alt="photo" src="/static/uploads/applications/<%=data.signFile%>"/><br/>Applicant's Signature</td></tr>
+    
+
+  
+
+</table>
+  </div><h3><br/><br/><br/>
+    <span style="text-align:right ; width:100%; float: right; padding-right: 70px;">
+      <img width="120px" alt="photo" src="/static/images/assistant-examination-controller.jpg"/> <br/>Assistant Controller of Examination </span><br/><br/><br/></h3><br/>
+    
+  <h3 style="margin-top: 375px; text-align:center ;">Instructions for Candidates</h3>
+  <p style="font-size: 16px;line-height: 22px;text-align: justify;">
+    <ol style="font-size: 16px;line-height: 22px;text-align: justify;">
+      <li>Bring your <b>Admit Card and valid Photo ID Card</b> in original, both during the
+        examination. You will not be allowed to enter the examination hall without these
+        documents. Valid Photo ID's are:<br/>
+      a. Aadhaar Card / E-aadhaar in original<br/>
+      b. Passport in Original<br/>
+      c. Voters ID / EPIC card in original<br/>
+      d. PAN Card with photo in original<br/>
+      e. Drivers License in original.<br/>
+      All other ID / Photocopies of IDs even if attested/scanned photo of IDs in mobile phone
+      will <b>NOT</b> be considered as valid.</li>
+    <li>Do not bring any unauthorized material e.g., written notes, printed material of any type,
+        wallets, <b>pen</b>, pencil and purse etc. <b>Pen</b> would be provided by the AIIMS, Rae Bareli</li>
+      <li>Cell phones, pagers, calculators, USB devices, Scanners, Voice/Video Recorders or
+        any kind of electronic gadgets are <b>STRICTLY PROHIBITED</b> in the examination
+        center premises. AIIMS Raebareli shall cancel the exam of such candidates, who are
+        found in possession of any such electronic device, and may even debar the candidate
+        from undertaking any future exam as well.</li>
+        <li> Shoes / footwear with thick soles and garments with large buttons are <b>NOT</b> permitted.</li>
+          <li> OMR sheet may be given to you 15 minutes prior to start of examination, so that you
+            can check any discrepancy in it. Roll No. (10 digits), Subject Code (4 digits). Roll No.
+            Subject code &amp; question booklet number <b>will be written starting on the left</b>. Each
+            candidate&#39;s left thumb will be <b>recorded</b> on the OMR sheet.</li>
+            <li>One mark would be awarded for Right/Correct Answer. 0.25 mark will be deducted for
+              Wrong/Incorrect Answer. <b>No mark awarded/deducted for Un-attempted Answer</b>.</li>
+            <li>Improper conduct will entail expulsion.</li>
+            <li>AIIMS Raebareli reserves all rights to verify the identity and genuineness of each
+              candidate.</li>
+              <li>Failure to comply with these instructions will entail registration of Unfair Means Case,
+                Cancellation of exam or Debarment of candidate from future exams.</li>
+                <li>Candidates qualifing the screening test are required to check the institute website for the further updates.</li>
+                <li>Candidates have to arrange their travel, stay etc. on there own. The institute will not provide any TA-DA for screening, documents verification & interview.</li>
+              <li>There is no facility for the safe-keeping of ornaments valuables etc. </li>
+              <li>Intimation about date & time of interview to eligible candidate based on screening test, will be sent sperately.</li>
+    </ol>
+   
+    </p>
+
+</td></tr>
+<tr>
+  <td style="text-align: center; border-top:1px solid #000; height: 20px; ;">
+  
+  <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;"><br/><b><a  target="_blank" style="color: #000; text-decoration: none;" href="https://www.aiimsrbl.edu.in">www.aiimsrbl.edu.in</a></b><br><b>HELPLINE & SUPPORT</b><br/>Phone no: +91 0535-2704411 &nbsp;&nbsp;&nbsp;  Email: aiimsrblprogrammer@gmail.com</p></td></tr>
+
+
+  <tr>
+    <td style="text-align: center; border-top:1px solid #000; height: 50px;;">
+    
+    <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;">&#169; 2023 AIIMS Raebareli. All Right Reserved.</p></td></tr>
+  
+</table>
+
+         </td></tr>
+        
+        </table>
+        <div style="text-align: center;">
+          <button onclick="window.print();return false;" style="margin:0px auto; height: 50px; background-color: green;">Print Admit Card</button>
+  
+        </div>
+
+    </body>
+</html>

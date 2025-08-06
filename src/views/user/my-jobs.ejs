@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<!--Meta Tags-->
+		<%- include ('../commons/meta-tags.ejs') %>
+
+		<!-- Title -->
+		<title>Applied Jobs</title>
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/dark-style.css" rel="stylesheet" />
+		<link href="/static/css/transparent-style.css" rel="stylesheet" />
+
+		<!-- Font-awesome  Css -->
+		<link href="/static/css/icons.css" rel="stylesheet"/>
+
+		<!--Select2 Plugin -->
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- DATA TABLE CSS -->
+		<link href="/static/plugins/datatable/css/dataTables.bootstrap5.css" rel="stylesheet" />
+		<link href="/static/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+		<!-- Custom scroll bar css-->
+		<link href="/static/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+		<!-- COLOR-SKINS -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+		<link rel="stylesheet" href="/static/color-skins/demo.css"/>
+
+	</head>
+	<body>
+
+		<!--Loader-->
+		<%- include ('../commons/loader.ejs') %>
+
+		<!--Header Section-->
+		<%- include ('../commons/header.ejs') %>
+		<!--Header Section-->
+
+		<!--Breadcrumb-->
+		<section>
+			<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+				<div class="header-text mb-0">
+					<div class="container">
+						<div class="text-center text-white">
+							<h1 class="">Applied Jobs</h1>
+							<ol class="breadcrumb text-center">
+								<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
+								<li class="breadcrumb-item active text-white" aria-current="page">Applied Jobs</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Breadcrumb-->
+
+		<!--User Dashboard-->
+		<section class="sptb">
+			<div class="container">
+				<div class="row">
+					<%- include ('../commons/my-dashboard-side-nav.ejs') %>
+					<div class="col-xl-9 col-lg-12 col-md-12">
+						<div class="card mb-0">
+							<div class="card-header">
+								<h3 class="card-title">Applied Jobs</h3>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table id="example2" class="table hover table-bordered" >
+										<thead>
+											<tr>
+												<th>Adv. Id / Reg. Number</th>
+												<th>Department / Post</th>
+												<th>Payment Status / Amount</th>
+												<th>Payment Id</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% for(var i = 0; i < data.length; i++) { %>
+											<tr>
+												<td><%=data[i].advRefNo%> <br> Reg. No.: <b><%=data[i].registrationNumber%></b></td>
+												<td><%=data[i].department%> <br> <%=data[i].post%></td>
+												<td><%=data[i].paymentStatus%> <br> Rs. <%=data[i].applicationfee%></td>
+												<td>
+													<%if(data[i].paymentStatus == 'PENDING' || data[i].paymentStatus == 'FAIL' ){%>
+														<%if(  data[i].advRefNo=='##'  ){%>
+															<a class="btn btn-info btn-sm text-white" href="/application-success?application_id=<%=data[i]._id%>" > Pay Fees</a> <br><br>
+															<!-- <a class="btn btn-primary btn-sm text-white" href="/api/doubleVerification?application_id=<%=data[i]._id%>" > Check Payment status</a> <br><br>
+														 -->
+														<%}%>
+													<%}  else {%>
+													<%=data[i].razorpay_payment_id%>
+													<%}%>
+												</td>
+												<td>
+													<% if(data[i].admitCardGenerated){ %>
+														<%if(data[i].advRefNo == 'AIIMS/RBL/REC/SR/2025/71'){%>
+															
+															
+																	
+													<a class="btn btn-info btn-sm text-white" href="/print-admit-card?application_id=<%=data[i]._id%>" target="_blank"> Download Admit Card</a> <br><br>
+<%}%>
+													<%}%>
+													<%if(data[i].advRefNo =='AIIMS/RBL/REC/SR/2025/71' ){%>
+													<a class="btn btn-primary btn-sm text-white" href="/print-application-form?application_id=<%=data[i]._id%>" target="_blank"> View Application Form</a>
+													<%}%>
+													<%if(data[i].paymentStatus == 'PENDING' || data[i].paymentStatus == 'FAIL'){%>
+
+													<%if(data[i].advRefNo == '#'){%>
+													<a class="btn btn-warning btn-sm text-white" href="/edit-application-form?application_id=<%=data[i]._id%>" target="_blank"> Edit Application Form</a> 
+													<%}%>
+													<%}%>
+												</td>
+											</tr>
+											<%}%>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="card-footer">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/User Dashboard-->
+
+		<!--Footer Section-->
+		<%- include ('../commons/footer.ejs') %>
+		<!--Footer Section-->
+
+		<!-- Notification -->
+		<a href="advanced-search.html" id="notification" ><span class="notification-text">Create Job Alert</span><i class="fa fa-bell"></i></a>
+
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
+
+		<!-- JQuery js-->
+		<script src="/static/js/vendors/jquery.min.js"></script>
+
+		<!-- Bootstrap js -->
+		<script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<!--JQuery Sparkline Js-->
+		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+		<!-- Circle Progress Js-->
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
+
+		<!--Owl Carousel js -->
+		<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+		<script src="/static/js/owl-carousel.js"></script>
+
+		<!--Horizontal Menu-->
+		<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+		<!--JQuery TouchSwipe js-->
+		<script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+		<!--Select2 js -->
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+		<script src="/static/js/select2.js"></script>
+
+		<!-- Cookie js -->
+		<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+		<script src="/static/plugins/cookie/cookie.js"></script>
+
+		<!-- Count Down-->
+		<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+		<!-- Custom scroll bar Js-->
+		<script src="/static/plugins/pscrollbar/pscrollbar.js"></script>
+
+		<!-- sticky Js-->
+		<script src="/static/js/sticky.js"></script>
+
+		<!-- DATA TABLE JS-->
+		<script src="/static/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="/static/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+		<script src="/static/plugins/datatable/js/dataTables.buttons.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+		<script src="/static/plugins/datatable/js/jszip.min.js"></script>
+		<script src="/static/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+		<script src="/static/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.html5.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.print.min.js"></script>
+		<script src="/static/plugins/datatable/js/buttons.colVis.min.js"></script>
+		<script src="/static/plugins/datatable/dataTables.responsive.min.js"></script>
+		<script src="/static/plugins/datatable/responsive.bootstrap5.min.js"></script>
+		<script src="/static/js/datatable.js"></script>
+
+		<!-- Scripts Js-->
+		<script src="/static/js/scripts2.js"></script>
+
+		<!-- Custom Js-->
+		<script src="/static/js/themecolors.js"></script>
+		<script src="/static/js/custom.js"></script>
+
+		<script>
+			let currUrl = window.location.href;
+			if(currUrl.indexOf('/profile') >= 0){
+				$("#myProfile").addClass('active');
+			}
+			if(currUrl.indexOf('/my-jobs') >= 0){
+				$("#appliedJobs").addClass('active');
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+node_modules
+.dev
+release
+tmp
+signed
+.env
+package-lock.json
+.vscode
+.DS_Store
+uploads

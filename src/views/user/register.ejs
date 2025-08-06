@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<!--Meta Tags-->
+		<%- include ('../commons/meta-tags.ejs') %>
+
+		<!-- Title -->
+		<title>Applicant Registration</title>
+
+		<!-- Bootstrap Css -->
+		<link id="style" href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="/static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/dark-style.css" rel="stylesheet" />
+		<link href="/static/css/transparent-style.css" rel="stylesheet" />
+
+		<!-- Font-awesome  Css -->
+		<link href="/static/css/icons.css" rel="stylesheet"/>
+
+		<!--Select2 Plugin -->
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+		<!-- Custom scroll bar css-->
+		<link href="/static/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+		<!-- COLOR-SKINS -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+		<link rel="stylesheet" href="/static/color-skins/demo.css"/>
+
+	</head>
+	<body>
+
+		<!--Loader-->
+		<%- include ('../commons/loader.ejs') %>
+
+		<!--Header Section-->
+		<%- include ('../commons/header.ejs') %>
+		<!--Header Section-->
+
+		<!--Breadcrumb-->
+		<section>
+			<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+				<div class="header-text mb-0">
+					<div class="container">
+						<div class="text-center text-white">
+							<h1 class="">Register</h1>
+							<ol class="breadcrumb text-center">
+								<li class="breadcrumb-item"><a href="/">Home</a></li>
+								<li class="breadcrumb-item active text-white" aria-current="page">Register</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/Breadcrumb-->
+
+		<!--Register-section-->
+		<section class="sptb">
+			<div class="container customerpage">
+				<div class="row">
+				    <div class="single-page" >
+						<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
+							<div class="wrapper wrapper2 border">
+								<% if(post){ %> 
+								<% if(success){ %> 
+								<h6 class="heading-success">
+									<%=msg%> <br><br>
+									A verification link has been sent to your email id. Please verify your email.<br><br>
+									<strong>Note: The link will be valid for ONE HOUR only.</strong>
+								</h6>
+								<%} else {%>
+								<h6 class="heading-danger"><%=msg%></h6>
+								<% } %>
+								<% } %>
+								<form id="Register" method="post" class="card-body" tabindex="500">
+									<input type="hidden" name="_csrf" value="<%=_csrf%>">
+									<div class="name">
+										<input type="text" name="name" required>
+										<label>Full Name</label>
+									</div>
+									<div class="mail">
+										<input type="email" name="email" required>
+										<label>Email Address</label>
+									</div>
+									<div class="phone">
+										<input type="text" minlength="10" maxlength="10" name="phone" required>
+										<label>Mobile Number</label>
+									</div>
+									<div class="passwd">
+										<input type="password" name="password" required>
+										<label>Password</label>
+									</div>
+									<div class="passwd">
+										<input type="password" name="confirmPassword" required>
+										<label>Confirm Password</label>
+									</div>
+									<div class="submit">
+										<input class="btn btn-primary btn-block" type="submit" name="submit" value="Register">
+									</div>
+									<p class="text-dark mb-0">Already have an account?<a href="/login" class="text-primary ms-1">Login</a></p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Register-section-->
+
+		<!--Footer Section-->
+		<%- include ('../commons/footer.ejs') %>
+		<!--Footer Section-->
+
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
+
+		<!-- JQuery js-->
+		<script src="/static/js/vendors/jquery.min.js"></script>
+
+		<!-- Bootstrap js -->
+		<script src="/static/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<!--JQuery Sparkline Js-->
+		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+		<!-- Circle Progress Js-->
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
+
+		<!--Owl Carousel js -->
+		<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+		<script src="/static/js/owl-carousel.js"></script>
+
+		<!--Horizontal Menu-->
+		<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+		<!--JQuery TouchSwipe js-->
+		<script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+		<!--Select2 js -->
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+		<script src="/static/js/select2.js"></script>
+
+		<!-- Cookie js -->
+		<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+		<script src="/static/plugins/cookie/cookie.js"></script>
+
+		<!-- Custom scroll bar Js-->
+		<script src="/static/plugins/pscrollbar/pscrollbar.js"></script>
+
+		<!-- sticky Js-->
+		<script src="/static/js/sticky.js"></script>
+
+		<!-- Swipe Js-->
+		<script src="/static/js/swipe.js"></script>
+
+		<!-- Scripts Js-->
+		<script src="/static/js/scripts2.js"></script>
+
+		<!-- Custom Js-->
+		<script src="/static/js/themecolors.js"></script>
+		<script src="/static/js/custom.js"></script>
+
+	</body>
+</html>

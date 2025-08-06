@@ -1,0 +1,51 @@
+<div class="col-xl-3 col-lg-12 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">My Dashboard</h3>
+        </div>
+        <div class="card-body text-center item-user border-bottom">
+            <div class="profile-pic">
+                <div class="profile-pic-img">
+                    <span class="bg-success dots" data-bs-toggle="tooltip" data-bs-placement="top" title="online"></span>
+                    <img src="/static/images/users/male/25.jpg" class="brround" alt="user">
+                </div>
+                <a href="/dashboard" class="text-dark"><h4 class="mt-3 mb-0 font-weight-semibold">
+                    <%=locals.session.user.name%>
+                </h4></a>
+                <small><%=locals.session.user.email%></small>
+            </div>
+        </div>
+        <div class="item1-links  mb-0">
+            
+            <a href="#" class="active d-flex border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-edit fs-20"></i></span> Online Application Form
+            </a>
+            
+            <a href="#" class=" d-flex border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-briefcase fs-20"></i></span> My Jobs
+            </a>
+            
+            
+            
+            <a href="#" class=" d-flex  border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-credit-card fs-20"></i></span> Payments History
+            </a>
+            <a href="#" class=" d-flex border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-mail  fs-20 fs-20"></i></span> My Inbox
+            </a>
+            <a href="#" class="d-flex  border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-info-outline fs-20"></i></span> How to Apply
+            </a>
+            <a href="#" class="d-flex border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-flag-outline fs-20"></i></span> Safety Tips
+            </a>
+            <a href="#" class="d-flex border-bottom">
+                <span class="icon1 me-2"><i class="typcn typcn-cog-outline fs-20"></i></span> Settings
+            </a>
+            <a href="/logout" class="d-flex">
+                <span class="icon1 me-2"><i class="typcn typcn-power-outline fs-20"></i></span> Logout
+            </a>
+        </div>
+    </div>
+    
+</div>

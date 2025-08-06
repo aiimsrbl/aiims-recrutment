@@ -1,0 +1,133 @@
+<html lang="en">
+    <head>
+    
+
+    </head>
+
+    <body >
+      <style>
+        table {
+            border-collapse: collapse;
+            width: 100%; font-size: 14px;
+            border-collapse: collapse; font-family:Arial, Helvetica, sans-serif; 
+        }
+          
+        .mtstyle th, .mtstyle td {
+            text-align: left;
+            padding: 0px;margin: 0px;
+            border:0px solid #000;border-collapse: collapse; 
+        }
+        .mNewtstyle th, .mNewtstyle td {
+            text-align: left;
+            padding: 8px;
+            border:1px solid #000;border-collapse: collapse; 
+        }
+        .mtstyle th {
+            width:35%;
+        }
+      .mtstyle  tr:nth-child(even) {
+           
+        }
+    </style>
+        <table style="background-color: rgb(168, 168, 171); width: 100%; border: 0px;">
+         <tr><td>
+<table  style="background-color: #0953e5;width: 850px; font-size: 14px; border: 0px; margin:0px auto; background: #d6d8dc; border-collapse: collapse; font-family:Arial, Helvetica, sans-serif;">
+  
+  <tr><td  vertical-align="top" style="text-align: center;">
+    <p>&nbsp;</p>
+    <img width="700px;" src="/static/images/aiims-rbl.png"/>
+
+<p style="font-size: 18px;">www.aiimsrbl.edu.in</p>
+</td>
+</tr>
+<tr>
+  <td style="border-top: 1px solid #fff; margin-top: 10px; ">
+    <p>&nbsp;</p>
+  
+  </td>
+</tr>
+<tr><td style="border:0px ; padding: 20px; background-color: #fff; background: #fff; font-size:14px;">
+  <div style="min-height:500px; background-color: #fff; background: #fff; font-size:14px;">
+    <table style="width:100%"><tr><td style="width:50%; text-align: left;">Ref. No: <%=data.advRefNo%></td><td  style="width:50%; text-align: right;" >Regi. No: <%=data.registrationNumber%></td></tr></table>
+    <h1 style="text-align: center;font-size:18px; font-family:Arial, Helvetica, sans-serif; color:#000;">ADMIT CARD<br/><%if(data.post == 'Junior Resident'){%>Screening Test<%}%> <%if(data.post == 'Senior Resident'){%>Entrance Test (Part - A) <%}%>  - <%=data.post%> <%if(data.post == 'Junior Resident'){%>(Non Academic)<%}%></h1>
+    
+<p>&nbsp;</p>
+<h4 style="text-align:center">Venue: <span style="font-weight: 500;"><%=data.examAddress%></span>
+</h4>
+<table  class="mtstyle">
+  <tr><td >
+   <table class="mNewtstyle">
+    <tr><th style="text-transform:uppercase">Roll Number: </th><td style="text-transform:uppercase"><%=data.rollNumber%></td></tr> 
+    <tr><th style="text-transform:uppercase">Applicant Name: </th><td style="text-transform:uppercase"><%=data.applicantName%></td></tr>
+    <tr><th style="text-transform:uppercase">Father/Husband Name: </th><td style="text-transform:uppercase"><%=data.fatherOrHusbandName%></td></tr>
+    <tr><th style="text-transform:uppercase">Mothers's Name: </th><td style="text-transform:uppercase"><%=data.motherName%></td></tr>
+    <tr><th style="text-transform:uppercase">Date of Birth: </th><td style="text-transform:uppercase"><%=moment(data.dob).format('DD-MM-YYYY')%></td></tr>
+    <tr><th style="text-transform:uppercase">Gender: </th><td style="text-transform:uppercase"><%=data.gender%></td></tr>
+    <tr><th style="text-transform:uppercase">Subject:</th><td style="text-transform:uppercase"><%=data.department%></td></tr>
+    <tr><th style="text-transform:uppercase">Subject Code: </th><td style="text-transform:uppercase"><%=data.subjectCode%></td></tr>
+    <tr><th style="text-transform:uppercase">Reporting Date (Day): </th><td style="text-transform:uppercase"><%=moment(data.examDateTime).format('DD-MM-YYYY')%> (<%=moment(data.examDateTime).format('dddd')%>)</td></tr>
+    <tr><th style="text-transform:uppercase">Reporting Time: </th><td style="text-transform:uppercase"><%=moment(data.examDateTime).format('hh:mm A')%></td></tr>
+    <tr><th style="text-transform:uppercase">Examination Duration: </th><td style="text-transform:uppercase"><%=moment(data.examStartDateTime).format('hh:mm A')%> - <%=moment(data.examEndDateTime).format('hh:mm A')%></td></tr>
+   </table>
+    
+  </td><td style="text-align:center ; border:1px solid #000;border-left: 0px solid; padding: 8px;"><img width="140px" alt="photo" src="/static/uploads/applications/<%=data.photo%>"/>
+    <br/><br/><img height="75px" alt="photo" src="/static/uploads/applications/<%=data.signFile%>"/><br/>Applicant's Signature</td></tr>
+    
+
+  
+
+</table>
+  </div><h3><br/><br/><br/>
+    <span style="text-align:right ; width:100%; float: right; padding-right: 70px;">
+      <img width="120px" alt="photo" src="/static/images/assistant-examination-controller.jpg"/> <br/>Assistant Controller of Examination </span><br/><br/><br/></h3><br/>
+    
+  <h3 style="margin-top: 375px; text-align:center ;">Instructions for Candidates</h3>
+  <p style="font-size: 16px;line-height: 22px;text-align: justify;">
+    <ol style="font-size: 16px;line-height: 22px;text-align: justify;"><li>
+      <%if(data.post == 'Junior Resident'){%> The Screening examination for Junior Resident (Non Academic) will be written examination consisting of multiple-choice questions with one correct answer.<%}%> 
+      <%if(data.post == 'Senior Resident'){%>The entrance examination for Senior Resident (Hospital Services) will be conducted in two parts Part A will be written examination consisting of multiple-choice questions with one correct
+      answer; Part B will be departmental assessment.<%}%> </li>
+    <li>
+      <%if(data.post == 'Junior Resident'){%>Screening examination will be of  80 marks and consist of 80 questions. Duration of the examination will be 80 minutes, from 10:00 AM to 11:20 AM.<%}%> 
+      <%if(data.post == 'Senior Resident'){%>Part - A will be of 80 marks and consist of 80 questions. Duration of examination will be 80 minutes, from 10.00 AM to 11.20 AM. Part - B will be 20 marks and will be conducted on 24.03.25 at 09.30 AM onwards in respective departments for which candidates will be called for 3 times the vacancy in each department according to merit list of Part - A. Departments where applicants will be less than 3 times the vacancy, there all qualified candidates will be called for Part- B test.<%}%> </li>
+      <li>Negative marking of 0.25 will be done for each incorrect response.</li>
+      <li>The candidates are requested to bring their admit Card and Govt. ID Card both during the
+        examination without which they will not be allowed to enter the examination.</li>
+        <li> Candidate has to report 1 hour before the examination time.</li>
+          <li> Do not bring any unauthorized material e.g., electronic gazettes, written notes, printed material
+            of any type to the examination hall.</li>
+            <li>Ball-point pens will be provided to the candidates at the Examination Centre.</li>
+            <li>Do not make any stray marks on the OMR answer sheet as it may invalidate your OMR sheet.</li>
+            <li>Kindly ensure that the invigilator has signed your OMR Answer Sheet. Put your Signature and
+              Thumb impression, in the appropriate boxes, in front of the Invigilator.</li>
+              <li>Kindly submit both the question paper and OMR sheet to the invigilator after the exam is over. </li>
+              <li>AIIMS Raebareli reserves all rights to verify identity and genuineness of each candidate.</li>
+              <li>In case of any query kindly mail at  recruitment.aiimsrbl@gmail.com</li>
+    </ol>
+   
+    </p>
+
+</td></tr>
+<tr>
+  <td style="text-align: center; border-top:1px solid #000; height: 20px; ;">
+  
+  <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;"><br/><b><a  target="_blank" style="color: #000; text-decoration: none;" href="https://www.aiimsrbl.edu.in">www.aiimsrbl.edu.in</a></b><br></p></td></tr>
+
+
+  <tr>
+    <td style="text-align: center; border-top:1px solid #000; height: 50px;;">
+    
+    <p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#000;">&#169; 2024 AIIMS Raebareli. All Right Reserved.</p></td></tr>
+  
+</table>
+
+         </td></tr>
+        
+        </table>
+        <div style="text-align: center;">
+          <button onclick="window.print();return false;" style="margin:0px auto; height: 50px; background-color: green;">Print Admit Card</button>
+  
+        </div>
+
+    </body>
+</html>
