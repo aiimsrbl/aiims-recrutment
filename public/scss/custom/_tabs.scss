@@ -1,0 +1,144 @@
+.tab-content> {
+	.tab-pane {
+		display: none;
+	}
+	.active {
+		display: block;
+	}
+}
+
+.tabs-menu ul li {
+	a {
+		padding: 10px 20px 11px 20px;
+	}
+	.active {
+		color: $white;
+		border-radius: 25px;
+	}
+}
+
+.tabs-menu1 ul li {
+	a {
+		padding: 7px 20px 7px 20px;
+		display: block;
+		border: 1px solid #e8ebf3;
+		margin: 0 5px 0 0;
+		border-radius: 3px;
+		font-weight: 500;
+	}
+	display: block;
+	.active {
+		border-radius: 2px;
+	}
+}
+
+.tabs-menu-body {
+	padding: 15px;
+	border: 1px solid #e8ebf3;
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.tab-menu-heading {
+	padding: 20px;
+	border: 1px solid #e8ebf3;
+	border-bottom: 0;
+}
+
+.tab_wrapper {
+	.content_wrapper .tab_content.active p:last-child {
+		margin-bottom: 0;
+	}
+	>ul {
+		li {
+			border: 1px solid #e8ebf3;
+			border-top: 3px solid #e8ebf3;
+		}
+		border-bottom: 1px solid #e8ebf3;
+	}
+	&.right_side {
+		.content_wrapper {
+			border: 1px solid #e8ebf3;
+		}
+		>ul {
+			li {
+				&.active {
+					border-color: #e8ebf3;
+				}
+				&:after {
+					background: #e8ebf3;
+				}
+			}
+			border-bottom: 1px solid #e8ebf3;
+		}
+	}
+}
+
+@media (min-width: 767px) {
+	.tab-content {
+		#tab-11 {
+			.item-card9-img {
+				width: 280px;
+			}
+			.item-card9-imgs {
+				img {
+					padding: 1.5rem;
+					margin: 0 auto;
+					display: block;
+				}
+				height: 197px;
+			}
+			.item-card2-img img {
+				height: 197px;
+			}
+		}
+		#tab-12 .item-card2-img img {
+			height: 197px !important;
+		}
+	}
+	.h-197 {
+		height: 197px;
+	}
+}
+
+@media (min-width: 1032px) {
+	.tab-content #tab-12 .item-card9-imgs img {
+		height: 197px !important;
+		padding: 1.5rem;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+#tab-11 .item-card2-img:hover a,
+#tab-12 .item-card2-img:hover a {
+	background: 0 0;
+}
+
+.tabs-menu ul.jobs-tabs li a {
+	padding: 10px 20px 11px 20px;
+	background: $white;
+	border-radius: 23px;
+	margin: 10px;
+	border: 1px solid #dee2ea;
+}
+
+@media (max-width: 768px) {
+	.tabs-menu1 ul li a {
+		display: block;
+		border: 1px solid #e8ebf3;
+		margin: 1px;
+		border-radius: 2px;
+	}
+}
+
+.tab-content .item-card7-desc {
+	p {
+		color: #838a9c;
+		font-size: 13px;
+	}
+	.item-card7-text h4 {
+		margin-bottom: 8px;
+	}
+}

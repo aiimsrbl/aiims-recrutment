@@ -1,0 +1,38 @@
+
+@import "../../scss/variables";
+
+/* reset */
+/* general */
+/* page */
+/* box */
+/* richtext custom style */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #EFEFEF;
+}
+.page-wrapper {
+	margin: 0 auto;
+	width: 960px;
+	max-width: 100%;
+}
+.box-content {
+	padding: 20px;
+	background-color: #EFEFEF;
+}
+textarea {
+	background-color: #FAFAFA;
+	border: #EFEFEF solid 1px;
+	color: #333;
+	height: 150px;
+	width: 100%;
+}
+.richText {
+	margin-top: 40px;
+	-webkit-box-shadow: 0 0 20px 0 #999;
+	-moz-box-shadow: 0 0 20px 0 #999;
+	box-shadow: 0 0 20px 0 #999;
+}

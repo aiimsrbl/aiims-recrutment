@@ -1,0 +1,98 @@
+.label {
+	display: inline-block;
+	margin-bottom: .5rem;
+	display: inline;
+	padding: .2em .6em .1em;
+	font-size: 80%;
+	color: $white;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+
+.label-pill {
+	padding-right: .6em;
+	padding-left: .6em;
+	border-radius: 10rem;
+}
+
+.label-info {
+	background-color: $info;
+}
+
+.label-danger {
+	background-color: $secondary6;
+}
+
+.label-warning {
+	background-color: $yellow;
+}
+
+.label-success {
+	background-color: $success;
+}
+
+.label-purple {
+	background-color: #6d33ff;
+}
+
+.label-pink {
+	background-color: #00a591;
+}
+
+.label-secondary {
+	background-color: $background;
+	color: $color;
+}
+
+.label {
+	&.arrowed {
+		position: relative;
+		margin-left: 9px;
+	}
+	&.arrowed-in {
+		position: relative;
+		margin-left: 9px;
+		&:before {
+			display: inline-block;
+			content: "";
+			position: absolute;
+			left: -14px;
+			top: 0;
+			border: 9px solid transparent;
+			border-width: 9px 7px;
+		}
+	}
+	&.arrowed:before {
+		display: inline-block;
+		content: "";
+		position: absolute;
+		left: -14px;
+		top: 0;
+		border: 9px solid transparent;
+		border-width: 9px 7px;
+	}
+	&.arrowed-in-right,
+	&.arrowed-right {
+		position: relative;
+		margin-right: 9px;
+		border-radius: 0 2px 2px 0;
+	}
+}
+
+.label-info.arrowed:before {
+	border-right-color: $info !important;
+}
+
+.label-danger.arrowed:before {
+	border-right-color: $secondary6 !important;
+}
+
+.label-success.arrowed:before {
+	border-right-color: $success !important;
+}
+
+.label-warning.arrowed:before {
+	border-right-color: $yellow !important;
+}
